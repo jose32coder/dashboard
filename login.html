@@ -6,44 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="./css/login.css">
-    <title>Login</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="header">
-        <div class="top">
-            <div class="theme-toggler">
-                <span class="material-symbols-sharp active">light_mode</span>
-                <span class="material-symbols-sharp">dark_mode</span>
-            </div>
+    <div class="background">
+        <div class="theme-toggler">
+            <span class="material-symbols-sharp active inactive">light_mode</span>
+            <span class="material-symbols-sharp">dark_mode</span>
         </div>
-    </div>
-    <div class="form">
-        <div class="header header-mobile">
-            <div class="top">
-                <div class="theme-toggler theme-toggler-mobile">
-                    <span class="material-symbols-sharp active">light_mode</span>
-                    <span class="material-symbols-sharp">dark_mode</span>
+
+        <form class="form" action="">
+            <h1 class="form__title">gratafy</h1>
+            <div class="containt">
+                <div class="div_inputs">
+                    <input type="text" id="user" class="form__inputs" placeholder=" ">
+                    <label for="user" class="form__labels">USER</label>
+                </div>
+                <div class="div_inputs">
+                    <input type="password" id="password" class="form__inputs" placeholder=" ">
+                    <label for="password" class="form__labels">PASSWORD</label>
+                </div>
+                <div class="form__button">
+                    <button class="btn"><b>LOG IN</b></button>
                 </div>
             </div>
-        </div>
-        <h2>Login</h2>
-        <div class="input">
-            <div class="inputBox">
-                <label for="user">Usuario: </label>
-                <span class="material-symbols-sharp icon">person</span>
-                <input type="text" name="" placeholder="Ingresa tu usuario...">
+            <div class="form__forgot">
+                <a href="" class="">FORGOT YOUR PASSWORD?</a>
             </div>
-            <div class="inputBox">
-                <label for="user">Constraseña: </label>
-                <span class="material-symbols-sharp icon">lock</span>
-                <input type="text" name="" placeholder="Ingresa tu contraseña...">
-            </div>
-            <div class="inputBox">
-                <button type="submit" class="btn-sm" name="">Ingresar</button>
-            </div>
-        </div>
-        <p class="forget"><a href="">¿Olvidaste tu contraseña?</a>
-        <a href="">Registrarse</a></p>
+        </form>
     </div>
     <script src="./js/login.js"></script>
 </body>

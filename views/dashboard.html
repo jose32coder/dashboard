@@ -3,51 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-sscale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashboard.css">
     <title>Responsive Dashboard</title>
 </head>
 <body>
+    <div class="disabled"></div>
     <div class="container">
-
          <!-------------------- CONTAINER LEFT - MENÚ LATERAL --------------------->
 
-        <aside>
-            <div class="top">
-                <div class="logo">
-                    <img src="../images/logo.png" alt="logo">
-                    <h2>DASH <span class="await">BOARD</span></h2>
+            <aside>
+                <div class="top">
+                    <div class="logo">
+                        <img src="../images/logo.png" alt="logo">
+                        <h2>Dashboard</h2>
+                    </div>
+                    <div class="close" id="close-btn">
+                        <span class="material-symbols-sharp">close</span>
+                    </div>
                 </div>
-                <div class="close" id="close-btn">
-                    <span class="material-symbols-sharp">close</span>
+                <div class="sidebar">
+                    <a href="#" class="active">
+                        <span class="material-symbols-sharp">window</span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <a href="#" class="">
+                        <span class="material-symbols-sharp">person_outline </span>
+                        <h3>Customers</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-sharp">mail_outline</span>
+                        <h3>Messages</h3>
+                        <span class="message-count">26</span>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-sharp">receipt_long</span>
+                        <h3>Orders</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-sharp">logout</span>
+                        <h3>Logout</h3>
+                    </a>
                 </div>
-            </div>
-            <div class="sidebar">
-                <a href="#" class="active">
-                    <span class="material-symbols-sharp">window</span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="#" class="">
-                    <span class="material-symbols-sharp">person_outline </span>
-                    <h3>Customers</h3>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-sharp">mail_outline</span>
-                    <h3>Messages</h3>
-                    <span class="message-count">26</span>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-sharp">receipt_long</span>
-                    <h3>Orders</h3>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-sharp">logout</span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
-
+            </aside>
         <!---------------- CIERRA EL ASID --------------->
         <main>
             <h1>Dashboard</h1>
@@ -55,61 +54,46 @@
                 <input type="date" name="" id="">
             </div>
             <div class="insights">
-                <div class="sales">
-                    <span class="material-symbols-sharp">insights</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Ventas Totales</h3>
-                            <h1>$0,00</h1>
+                <div class="options">
+                    <div class="full-menu-income">
+                        <ul class="menu-income">
+                            <li><a href="" class="venta">Ventas totales</a></li>
+                            <li><a href="" class="pvp">Pvp total</a></li>
+                            <li><a href="" class="ganancia">Ganancias totales</a></li>
+                        </ul>
+                        <div class="container-modal">
+                            <a href="">Ver más...</a>
                         </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>0%</p>
+                        <div>
+                            <span class="material-symbols-sharp btn-modal-1">more_horiz</span>
+                            <span class="material-symbols-sharp btn-modal-2">more_horiz</span>
+                        </div>
+                    </div>
+                    <div class="middle-full middle-1">
+                        <div class="middle info1">
+                            <div class="left">
+                                <h3>Ventas Totales</h3>
+                                <h2>$0,00</h2>
                             </div>
                         </div>
                     </div>
-                    <small class="text-muted">Últimas 24 horas</small>
-                </div>
-                <!--------- TERMINA VENTAS --------->
-                <div class="expenses">
-                    <span class="material-symbols-sharp">bar_chart</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Gastos Totales</h3>
-                            <h1>$0,00</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>0%</p>
+                    <div class="middle-full middle-2">
+                        <div class="middle info1">
+                            <div class="left">
+                                <h3>Pvp total</h3>
+                                <h2>$0,00</h2>
                             </div>
                         </div>
                     </div>
-                    <small class="text-muted">Últimas 24 horas</small>
-                </div>
-                <!--------- TERMINA GASTOS --------->
-                <div class="income">
-                    <span class="material-symbols-sharp">stacked_line_chart</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Ingresos Totales</h3>
-                            <h1>$0,00</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>0%</p>
+                    <div class="middle-full middle-3">
+                        <div class="middle info2">
+                            <div class="left">
+                                <h3>Ganancias Totales</h3>
+                                <h2>$0,00</h2>
                             </div>
                         </div>
                     </div>
-                    <small class="text-muted">Últimas 24 horas</small>
+                    <small class="text-muted">Últimos 7 días</small>
                 </div>
                 <!--------- TERMINA INGRESOS --------->
             </div>
@@ -121,8 +105,9 @@
                         <tr>
                             <th>Product Name</th>
                             <th>Product Number</th>
-                            <th>Payment</th>
                             <th>Status</th>
+                            <th>Date inicio</th>
+                            <th>Date cierre</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -155,38 +140,24 @@
             <!---------- FINALIZA EL PANEL DE ADMIN ---------->
 
             <div class="recent-updates">
-                <h2>Recent Updates</h2>
+                <h2>Notes</h2>
                 <div class="updates">
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="../images/profile-2.jpg" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
-                            <small class="text-muted">Hace 2 minutos</small>
-                        </div>
+                    <div class="message">
+                        <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
+                        <small class="text-muted">Hace 2 minutos</small>
                     </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="../images/profile-3.jpg" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
-                            <small class="text-muted">Hace 2 minutos</small>
-                        </div>
+
+                    <div class="message">
+                        <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
+                        <small class="text-muted">Hace 2 minutos</small>
                     </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="../images/profile-4.jpg" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
-                            <small class="text-muted">Hace 2 minutos</small>
-                        </div>
+                    <div class="message">
+                        <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
+                        <small class="text-muted">Hace 2 minutos</small>
                     </div>
                 </div>
             </div>
-                  <!---------- FINALIZA RESEÑAS DE VENTAS ---------->
+                <!---------- FINALIZA RESEÑAS DE VENTAS ---------->
             <div class="sales-analytics">
                 <h2>Sales Analytics</h2>
                 <div class="item online">
@@ -198,7 +169,7 @@
                             <h3>ONLINE ORDERS</h3>
                             <small class="text-muted">Últimas 24 horas</small>
                         </div>
-                        <h5 class="success">+39%</h5>
+                        <h5 class="danger">+39%</h5>
                         <h3>3849</h3>
                     </div>
                 </div>
@@ -224,14 +195,14 @@
                             <h3>NEW CUSTOMERS</h3>
                             <small class="text-muted">Últimas 24 horas</small>
                         </div>
-                        <h5 class="success">+25%</h5>
+                        <h5 class="danger">+25%</h5>
                         <h3>110</h3>
                     </div>
                 </div>
                 <div class="item refresh-product">
                     <div>
                         <span class="material-symbols-sharp">history</span>
-                        <h3>Refresh List</h3>
+                        <h3>Refresh resources</h3>
                     </div>
                 </div>
             </div>
