@@ -89,10 +89,11 @@
                 <div class="all-table">
                     <div class="filter">
                         <ul>
-                            <li><a href="" class="all-order">All orders</a></li>
-                            <li><a href="" class="declined">Declined</a></li>
-                            <li><a href="" class="pending">Pending</a></li>
-                            <li><a href="" class="delivered">Delivered</a></li>
+                            <li class="active">All orders</li>
+                            <li>Declined</li>
+                            <li>Pending</li>
+                            <li>Delivered</li>
+                            <div id="mark-order"></div>
                         </ul>
                         <div class="filter-s-a">
                             <div class="filter-agg btn-agg btn-close" id="button" onclick="toggleModal()">
@@ -143,12 +144,62 @@
         </div>
     </div>
      <!--------- Ventana Modal -------->
-     <div class="pop-up" id="pop-up">
-        <h2>Register of user</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt quasi, reiciendis voluptate ut consectetur, amet dolorum ducimus ipsa impedit dignissimos maxime quaerat facilis pariatur quia libero! Soluta debitis incidunt necessitatibus nesciunt, a aliquam perspiciatis mollitia tempore itaque delectus earum quidem amet aperiam quisquam magni! Minus ex fugit velit hic voluptatem iste sit inventore. Amet vel modi impedit dignissimos eaque repellendus tenetur placeat optio pariatur sit a minima, non eius commodi facere deleniti vitae saepe quaerat autem voluptas mollitia odit culpa magnam? Tempora, exercitationem deserunt, perferendis sunt eaque magnam, molestias fuga ex sapiente architecto qui facere neque. Natus exercitationem delectus necessitatibus.</p>
-        <a class="btn-modal" id="btn-modal" onclick="toggleModal()"><span class="material-symbols-sharp btn-modal">close</span></a>
-        
+    <div class="pop-up" id="pop-up">
+        <nav>
+            <div id="progress-bar"></div>
+            <ul>
+            <!-- <div id=""></div> -->
+            <li class="register activeC" id="register">Register of user</li>
+            <li class="service" id="service">Service</li>
+            </ul>
+            <div class="btn-modal" id="btn-modal" onclick="toggleModal()"><span class="material-symbols-sharp btn-modal">close</span></div>
+        </nav>
+        <form class="form slide">
+            <div class="card active" id="card1">
+                <div class="div-inputs">
+                    <div class="inputs inputs1">
+                        <input type="text" id="cedula" placeholder=" " class="input-modal">
+                        <label for="cedula" class="label-modal text-muted"> Cedula:</label>
+                    </div>
+                </div>
+                <div class="div-inputs">
+                    <div class="inputs inputs2">
+                        <input type="text" id="nombre" placeholder=" " class="input-modal">
+                        <label for="nombre" class="label-modal text-muted"> Nombre:</label>
+                    </div>
+                    <div class="inputs inputs3">
+                        <input type="text" id="apellido" placeholder=" " class="input-modal">
+                        <label for="apellido" class="label-modal text-muted"> Apellido:</label>
+                    </div>
+                </div>
+                <div class="div-inputs-btn">
+                    <div class="inputs-btn">
+                        <button type="button" onclick="toggleModal()">Cancel</button>
+                        <button type="button">Save</button>
+                        <button class="btn-next" type="button">Next</button>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="card card1 inactive" id="card2">
+                <h1 class="title-services">Service</h1>
+                <div class="div-textarea">
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="div-btns">
+                    <div class="inputs-btn">
+                        <button type="button" onclick="toggleModal()">Cancel</button>
+                        <button type="button" class="btn-back">Back</button>
+                        <button type="button">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
+
+    <script src="../js/gsap/gsap.js"></script>
+    <script src="../js/jQuery/jQuery.js"></script>
     <script src="../js/customers.js">
     </script>
 </body>    

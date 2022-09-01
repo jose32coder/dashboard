@@ -356,22 +356,33 @@ main .filter{
     align-items: flex-end;
     justify-content: space-between;
     margin-top: 20px;
+    position: relative;
+    margin-bottom: 20px;
 }
-main .filter:hover{
-    box-shadow: none;
-    transition: all 300ms ease;
-}
+
 main .filter ul{
     display: flex;
+    width: 100%;
 }
 main .filter ul li{
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
     margin-left: 20px;
     font-size: 1rem;
+    cursor: pointer;
 }
-main .filter ul li a:hover{
-    border-bottom: 2px solid var(--color-primary);
+
+main .filter ul #mark-order{
+    position: absolute;
+    left: 0;
+    height: 4px;
+    background: var(--color-primary);
+    opacity: .8;
+    bottom: -6px;
+    transition: 1s;
 }
+
+
 main .filter-search{
     position: relative;
     padding: .6rem 1rem;
@@ -580,30 +591,255 @@ main .pages ul li:nth-child(5){
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    padding: 50px;
+    height: 450px;
+    width: 75%;
     box-shadow: var(--box-shadow-darkness);
     background: var(--color-white);
     color: var(--color-dark);
     visibility: hidden;
     opacity: 0;
-    transition: 0.5s;
+    overflow: hidden;
+    transition: 1s;
+    border-radius: var(--border-radius-2);
+    z-index: -1;
 }
 #pop-up.active{
     top: 50%;
     visibility: visible;
     opacity: 10;
-    transition: 0.5s;
+    transition: 1s;
+    z-index: 1;
 }
-.pop-up .btn-modal{
+.pop-up nav .btn-modal{
     position: absolute;
-    top: 5%;
+    top: 25%;
     right: 3%;
     cursor: pointer;
 }
+.pop-up nav{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 10000;
+}
+.pop-up ul{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    transition: 1s;
+}
+.pop-up #progress-bar{
+    position: absolute;
+    display: flex;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(120deg, var(--color-primary) 90%, transparent 10%);
+    opacity: .8;
+    z-index: -1;
+    border-start-start-radius: var(--border-radius-2);
+    transition: 1.5s;
+}
+.pop-up #progress-bar.activeC{
+    border-start-end-radius: var(--border-radius-2);
+    background: linear-gradient(var(--color-primary) 100%, transparent 0%);
+}
+.pop-up ul li{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    font-size: 1.5rem;
+    width: 50%;
+    background: transparent;
+    color: var(--color-dark);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.pop-up .slide{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* transition: 1.5s; */
+}
+
+.pop-up .card{
+    position: absolute;
+    top: 12%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: 1.5s;
+}
+ .pop-up #card.active{
+    z-index: 10;
+    visibility: visible;
+    background: var(--color-white);
+    transition: 1s;
+}
+.pop-up #card2.inactive{
+    transform: translateX(100%);
+    background: var(--color-white);
+    transition: 1.5s;
+}
+.pop-up #card2.active{
+    z-index: 10;
+    visibility: visible;
+    background: var(--color-white);
+    transition: 1.5s;
+}
+.pop-up #card2.inactive{
+    visibility: hidden;
+    /* transform: translateY(73%); */
+    background: var(--color-white);
+    transition: 1s;
+}
 
 
 
+.div-inputs{
+    display: flex;
+    padding-right: 3.5rem;
+    /* transform: translateY(-50px); */
+}
+
+.div-inputs .inputs{
+    position: relative;
+    padding: .6rem 2.5rem;
+    margin-top: 30px;
+    width: 50%;
+    transform: translate(-50px);
+}
+.div-inputs .inputs .input-modal{
+    width: 100%;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    background: transparent;
+    border-bottom: 1px solid var(--color-dark);
+    height: 60px;
+    padding: 0 0rem;
+    padding-top: .8rem;
+    outline: none;
+}
+.div-inputs .inputs .label-modal{
+    color: var(--color-dark);
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    font-size: 1.2rem;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.input-modal:focus + .label-modal,
+.input-modal:not(:placeholder-shown) + .label-modal{
+    transform: translateY(-5px) scale(.7);
+    transform-origin: top left;
+    color: var(--color-dark);
+}
+
+.div-inputs-btn{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.div-inputs-btn .inputs-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 30px 0 0;
+    transform: translateX(-50px);
+}
+.inputs-btn button{
+    margin: 0 40px;
+    color: var(--color-white);
+    text-decoration: none;
+    letter-spacing: 1px;
+    height: 40px;
+    width: 120px;
+    padding: 5px 15px;
+    box-shadow: var(--box-shadow);
+    background: linear-gradient(120deg, var(--color-primary) 80%, var(--color-dark) 20%); 
+    border-radius: var(--border-radius-1);
+    opacity: .8;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+
+.pop-up #card2 h1{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    transform: translateX(50px);
+}
+.div-textarea{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+}
+.div-textarea textarea{
+    width: 70%;
+    height: 120px;
+    display: flex;
+    background: var(--color-dark);
+    color: var(--color-white);
+    justify-content: center;
+    resize: none;
+    font-size: 1.5rem;
+    transform: translateX(50px);
+}
+.pop-up .div-btns{
+    display: flex;
+    width: 100%;
+    height: 35%;
+    justify-content: space-evenly;
+    transform: translateX(50px);
+}
+
+.div-btns button{
+    margin: 0 40px;
+    color: var(--color-white);
+    text-decoration: none;
+    letter-spacing: 1px;
+    height: 40px;
+    width: 120px;
+    padding: 5px 15px;
+    box-shadow: var(--box-shadow);
+    background: linear-gradient(120deg, var(--color-primary) 80%, var(--color-dark) 20%); 
+    border-radius: var(--border-radius-1);
+    opacity: .8;
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+
+
+/* .pop-up h1{
+    width: 100%;
+}
+.pop-up .total-containers-inputs{
+    width: 100%;
+}
+.total-containers-inputs .div-inputs{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+ */
 
 
 
@@ -784,4 +1020,5 @@ main .pages ul li:nth-child(5){
     main table tbody tr td:nth-child(3){
         display: none;
     } */
+
 }
