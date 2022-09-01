@@ -69,6 +69,7 @@ const Orders = [
         nameOfProduct: 'Mica Samsung J5',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32', 
         dateFin: '10/11/2020'
     },
@@ -78,6 +79,7 @@ const Orders = [
         nameOfProduct: 'Pantalla Huawei P30',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '58',
         dateFin: '10/11/2020'
     },
@@ -87,6 +89,7 @@ const Orders = [
         nameOfProduct: 'USB tipo C',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32',
         dateFin: '10/11/2020'
     },
@@ -96,6 +99,7 @@ const Orders = [
         nameOfProduct: 'Router TP-Link 3364',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '10',
         dateFin: '10/11/2020'
     },
@@ -105,6 +109,7 @@ const Orders = [
         nameOfProduct: 'Forros Samsung',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '10',
         dateFin: '10/11/2020'
     },
@@ -114,6 +119,7 @@ const Orders = [
         nameOfProduct: 'Pin de carga Xiaomi',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32',
         dateFin: '10/11/2020'
     },
@@ -123,6 +129,7 @@ const Orders = [
         nameOfProduct: 'Cargador iPhone',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '58',
         dateFin: '10/11/2020'
     },
@@ -132,6 +139,7 @@ const Orders = [
         nameOfProduct: 'Mica Samsung J5',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32', 
         dateFin: '10/11/2020'
     },
@@ -141,6 +149,7 @@ const Orders = [
         nameOfProduct: 'Pantalla Huawei P30',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '58',
         dateFin: '10/11/2020'
     },
@@ -150,6 +159,7 @@ const Orders = [
         nameOfProduct: 'USB tipo C',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32',
         dateFin: '10/11/2020'
     },
@@ -159,6 +169,7 @@ const Orders = [
         nameOfProduct: 'Router TP-Link 3364',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '10',
         dateFin: '10/11/2020'
     },
@@ -168,6 +179,7 @@ const Orders = [
         nameOfProduct: 'Forros Samsung',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '10',
         dateFin: '10/11/2020'
     },
@@ -177,6 +189,7 @@ const Orders = [
         nameOfProduct: 'Pin de carga Xiaomi',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32',
         dateFin: '10/11/2020'
     },
@@ -186,6 +199,7 @@ const Orders = [
         nameOfProduct: 'Cargador iPhone',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '58',
         dateFin: '10/11/2020'
     },
@@ -195,6 +209,7 @@ const Orders = [
         nameOfProduct: 'Mica Samsung J5',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32', 
         dateFin: '10/11/2020'
     },
@@ -204,6 +219,7 @@ const Orders = [
         nameOfProduct: 'Pantalla Huawei P30',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '58',
         dateFin: '10/11/2020'
     },
@@ -213,6 +229,7 @@ const Orders = [
         nameOfProduct: 'USB tipo C',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32',
         dateFin: '10/11/2020'
     },
@@ -222,6 +239,7 @@ const Orders = [
         nameOfProduct: 'Router TP-Link 3364',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '10',
         dateFin: '10/11/2020'
     },
@@ -231,6 +249,7 @@ const Orders = [
         nameOfProduct: 'Forros Samsung',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '10',
         dateFin: '10/11/2020'
     },
@@ -240,6 +259,7 @@ const Orders = [
         nameOfProduct: 'Pin de carga Xiaomi',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '32',
         dateFin: '10/11/2020'
     },
@@ -249,6 +269,7 @@ const Orders = [
         nameOfProduct: 'Cargador iPhone',
         model: 'Modelo',
         price: '25$',
+        cost: '10$',
         stock: '58',
         dateFin: '10/11/2020'
     }
@@ -262,6 +283,7 @@ const Orders = [
                         <td>${order.nameOfProduct}</td>
                         <td>${order.model}</td>
                         <td>${order.price}</td>
+                        <td>${order.cost}</td>
                         <td>${order.stock}</td>
                         <td class=''><span class="material-symbols-sharp cursor-pointer">settings</span> <span class="material-symbols-sharp cursor-pointer">expand_less</span></td>
                         `

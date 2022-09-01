@@ -3,31 +3,48 @@ const menuBtn = document.querySelector('#menu-btn');
 const closeBtn = document.querySelector('#close-btn');
 const themeTogglerMobile = document.querySelector('.theme-toggler-mobile');
 const themeToggler = document.querySelector('.theme-toggler');
-const btn1 = document.querySelector('.all-order');
-const btn2 = document.querySelector('.declined');
-const btn3 = document.querySelector('.pending');
-const btn4 = document.querySelector('.delivered');
+const blurBody = document.querySelector('#blur');
+const popUs = document.querySelector('.pop-up');
+const markOrder = document.querySelector('#mark-order')
+const orderSelect = document.querySelectorAll('.filter ul li');
+const selectDiv = document.querySelectorAll('#pop-up ul li');
+let progressBar = document.querySelector("#progress-bar");
+
+const btnPopUp = document.querySelector('.filter-agg');
+const closeBtnPopUp = document.querySelector('.btn-modal');
+const card = document.querySelectorAll('.card');
+const btnNext = document.querySelector('.btn-next');
+const btnBack = document.querySelector('.btn-back');
+const registerDiv =  document.querySelector('#card1')
+const serviceDiv =  document.querySelector('#card2');
 
 
 
 
-// LLamar funciones
+var widthBar = 0;
+
+
+
+
+// LLamar funciones necesarias
 
 mostrarMenu()
 cambiarTema()
-evitarRecarga()
 
 
+
+// Funcion para animar el apartado del pop-up
 
 
 
 
 // Muestra y cierra el modal en el html
 function toggleModal(){
-    const blurBody = document.querySelector('#blur');
     blurBody.classList.toggle('active')
-    const popUs = document.querySelector('.pop-up');
     popUs.classList.toggle('active')
+    gsapRegisterOff();
+    gsapServicesOff();
+    progressBar.style.width = 0 + "%"
 };
   
 
@@ -67,20 +84,233 @@ function cambiarTema(){
     });
 }
 
-function evitarRecarga(){
-    btn1.addEventListener('click', e => {
-        e.preventDefault()
-    });
-    btn2.addEventListener('click', e => {
-        e.preventDefault()
-    });
-    btn3.addEventListener('click', e => {
-        e.preventDefault()
-    });
-    btn4.addEventListener('click', e => {
-        e.preventDefault()
-    });
+
+
+
+function moveOrder(event){
+    markOrder.style.left = event.offsetLeft + "px";
+    markOrder.style.width = event.offsetWidth + "px";
+
 }
+orderSelect.forEach(select =>{
+    select.addEventListener('click', e =>{
+        e.preventDefault();
+        moveOrder(e.target);
+        console.log(e.target);
+    })
+})
+
+
+
+
+
+selectDiv.forEach(select =>{
+    const id = setInterval(
+        btnPopUp.addEventListener('click', () =>{
+            ocultarDivTwo();
+            progressBar.style.width = 50 + "%";
+            progressBarActive(false)
+            gsapRegister();
+            gsapServicesOff();
+
+        }),
+        select.addEventListener('click', e =>{
+            console.log(e.target)
+            if(e.target.id === "register"){
+                console.log(e.target)
+                if(widthBar >= 100){
+                    clearInterval(id);
+                }
+                else if(widthBar <= 50){
+                    gsapRegister();
+                    gsapServicesOff();
+                    ocultarDivTwo();
+                    widthBar++;
+                    progressBar.style.width = 50 + "%";
+                    progressBarActive(false);
+                }
+            }
+            if(e.target.id === "service"){
+                console.log(e.target)
+                gsapRegisterOff();
+                gsapServices();
+                ocultarDivOne();
+                if(widthBar <= 50){
+                    progressBar.style.width = 100 + "%";
+                    progressBarActive(true);
+                }
+            }
+        }),
+        btnNext.addEventListener('click', e =>{
+            gsapRegisterOff();
+            gsapServices();
+            ocultarDivOne();
+            progressBar.style.width = 100 + "%";
+            progressBarActive(true);
+        }),
+        btnBack.addEventListener('click', e =>{
+            gsapRegister();
+            gsapServicesOff;
+            ocultarDivTwo();
+            progressBar.style.width = 50 + "%";
+            progressBarActive(false);
+        })
+    );
+
+})
+
+btnNext.addEventListener('click', e =>{
+    ocultarDivOne();
+})
+btnBack.addEventListener('click', e =>{
+    ocultarDivTwo();
+})
+
+
+
+function gsapRegister() {
+    let animatedRegister = gsap.timeline({
+        repeat: 0
+    });
+    animatedRegister.to('.inputs1', { 
+        delay: 0,
+        transition: 1.5,
+        x: 0,
+        ease: 'ease.InOut',
+    });
+    animatedRegister.to('.inputs2', { 
+        delay: 0,
+        transition: 1.5,
+        x: 0,
+        ease: 'ease.InOut',
+    }, '-=1');
+    animatedRegister.to('.inputs3', { 
+        delay: 0,
+        transition: 1.5,
+        x: 0,
+        ease: 'ease.InOut',
+    }, '-=1');
+    animatedRegister.to('.inputs-btn', { 
+        delay: 0,
+        x: 0,
+        ease: 'ease.InOut',
+        transition: 1,
+        visibility: 'visible'
+    }, '-=1.5');
+}
+
+
+
+function gsapRegisterOff() {
+    let animatedRegister = gsap.timeline({
+        repeat: 0
+    });
+    animatedRegister.to('.inputs1', { 
+        delay: 0,
+        transition: 1.5,
+        x: -50,
+        ease: 'ease.InOut',
+    });
+    animatedRegister.to('.inputs2', { 
+        delay: 0,
+        transition: 1.5,
+        x: -50,
+        ease: 'ease.InOut',
+    }, '-=2');
+    animatedRegister.to('.inputs3', { 
+        delay: 0,
+        transition: 1.5,
+        x: -50,
+        ease: 'ease.InOut',
+    }, '-=1.5');
+    animatedRegister.to('.inputs-btn', { 
+        delay: 0,
+        transition: 1.5,
+        x: -50,
+        ease: 'ease.InOut',
+    }, '-=3');
+}
+
+
+function gsapServices() {
+    let animatedServices = gsap.timeline({
+        repeat: 0
+    });
+    animatedServices.to('.title-services', {
+        delay: 0,
+        transition: 1.5,
+        x: 0,
+        ease: 'ease.InOut',
+    });
+    animatedServices.to('textarea', {
+        delay: 0,
+        transition: 1.5,
+        x: 0,
+        ease: 'ease.InOut',
+    }, '-=1');
+    animatedServices.to('.div-btns', {
+        delay: 0,
+        transition: 1,
+        x: 0,
+        ease: 'ease.InOut',
+    }, '-=1.5');
+}
+function gsapServicesOff() {
+    let animatedServices = gsap.timeline({
+        repeat: 0
+    });
+    animatedServices.to('.title-services', {
+        delay: 0,
+        transition: 1.5,
+        x: 50,
+        ease: 'ease.InOut',
+    });
+    animatedServices.to('textarea', {
+        delay: 0,
+        transition: 1.5,
+        x: 50,
+        ease: 'ease.InOut',
+    }, '-=1.3');
+    animatedServices.to('.div-btns', {
+        delay: 0,
+        transition: 1.5,
+        x: 50,
+        ease: 'ease.InOut',
+    }, '-=1.5');
+}
+
+
+
+
+
+function ocultarDivOne(){
+    serviceDiv.classList.remove('inactive');
+    serviceDiv.classList.add('active');
+    registerDiv.classList.add('inactive');
+    registerDiv.classList.remove('active');
+}
+function ocultarDivTwo(){
+    serviceDiv.classList.remove('active');
+    serviceDiv.classList.add('inactive');
+    registerDiv.classList.add('active');
+    registerDiv.classList.remove('inactive');
+}
+
+
+function progressBarActive(check) {
+    if (check == true) {
+        progressBar.classList.add('activeC')
+    }
+    else{
+        progressBar.classList.remove('activeC')
+    }
+}
+
+
+
+
+
+
 
 
 
