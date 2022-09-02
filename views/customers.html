@@ -149,34 +149,36 @@
             <div id="progress-bar"></div>
             <ul>
             <!-- <div id=""></div> -->
-            <li class="register activeC" id="register">Register of user</li>
+            <li class="register activeC" id="register">Register</li>
             <li class="service" id="service">Service</li>
             </ul>
             <div class="btn-modal" id="btn-modal" onclick="toggleModal()"><span class="material-symbols-sharp btn-modal">close</span></div>
         </nav>
         <form class="form slide">
             <div class="card active" id="card1">
-                <div class="div-inputs">
-                    <div class="inputs inputs1">
-                        <input type="text" id="cedula" placeholder=" " class="input-modal">
-                        <label for="cedula" class="label-modal text-muted"> Cedula:</label>
+                <h1 class="title-register">Register of users</h1>
+                <div class="total-inputs">
+                    <div class="div-inputs">
+                        <div class="inputs inputs1">
+                            <input type="text" id="cedula" placeholder=" " class="input-modal">
+                            <label for="cedula" class="label-modal text-muted"> Cedula:</label>
+                        </div>
                     </div>
-                </div>
-                <div class="div-inputs">
-                    <div class="inputs inputs2">
-                        <input type="text" id="nombre" placeholder=" " class="input-modal">
-                        <label for="nombre" class="label-modal text-muted"> Nombre:</label>
-                    </div>
-                    <div class="inputs inputs3">
-                        <input type="text" id="apellido" placeholder=" " class="input-modal">
-                        <label for="apellido" class="label-modal text-muted"> Apellido:</label>
+                    <div class="div-inputs">
+                        <div class="inputs inputs2">
+                            <input type="text" id="nombre" placeholder=" " class="input-modal">
+                            <label for="nombre" class="label-modal text-muted"> Nombre:</label>
+                        </div>
+                        <div class="inputs inputs3">
+                            <input type="text" id="apellido" placeholder=" " class="input-modal">
+                            <label for="apellido" class="label-modal text-muted"> Apellido:</label>
+                        </div>
                     </div>
                 </div>
                 <div class="div-inputs-btn">
                     <div class="inputs-btn">
-                        <button type="button" onclick="toggleModal()">Cancel</button>
                         <button type="button">Save</button>
-                        <button class="btn-next" type="button">Next</button>
+                        <button class="btn-next" type="button"><span class="material-symbols-sharp">arrow_forward_ios</span></button>
                     </div>
                 </div>
             </div>
@@ -187,10 +189,9 @@
                         <textarea name="" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="div-btns">
-                    <div class="inputs-btn">
-                        <button type="button" onclick="toggleModal()">Cancel</button>
-                        <button type="button" class="btn-back">Back</button>
-                        <button type="button">Save</button>
+                    <div class="inputs-btn2">
+                        <button type="button" class="btn-back"><span class="material-symbols-sharp">undo</span></button>
+                        <button type="button"><span>Save</span></button>
                     </div>
                 </div>
             </div>
