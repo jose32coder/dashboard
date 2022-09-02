@@ -161,9 +161,13 @@ selectDiv.forEach(select =>{
 
 btnNext.addEventListener('click', e =>{
     ocultarDivOne();
+    gsapRegisterOff();
+    gsapServices();
 })
 btnBack.addEventListener('click', e =>{
     ocultarDivTwo();
+    gsapRegister();
+    gsapServicesOff();
 })
 
 
@@ -172,31 +176,43 @@ function gsapRegister() {
     let animatedRegister = gsap.timeline({
         repeat: 0
     });
-    animatedRegister.to('.inputs1', { 
+    animatedRegister.to('.title-register', {
         delay: 0,
-        transition: 1.5,
-        x: 0,
+        transition: .5,
+        opacity: 1,
+        y: 0,
         ease: 'ease.InOut',
     });
+    animatedRegister.to('.inputs1', { 
+        delay: 0,
+        transition: .5,
+        opacity: 1,
+        y: -10,
+        ease: 'ease.InOut',
+    }, '-=.2');
     animatedRegister.to('.inputs2', { 
         delay: 0,
-        transition: 1.5,
-        x: 0,
+        transition: .5,
+        opacity: 1,
+        y: -10,
         ease: 'ease.InOut',
-    }, '-=1');
+    }, '-=.3');
     animatedRegister.to('.inputs3', { 
         delay: 0,
-        transition: 1.5,
-        x: 0,
+        transition: .5,
+        opacity: 1,
+        y: -10,
         ease: 'ease.InOut',
-    }, '-=1');
+    }, '-=.4');
     animatedRegister.to('.inputs-btn', { 
         delay: 0,
-        x: 0,
+        y: -10,
+        duration: .5,
         ease: 'ease.InOut',
         transition: 1,
+        opacity: 1,
         visibility: 'visible'
-    }, '-=1.5');
+    }, '-=.9');
 }
 
 
@@ -205,28 +221,39 @@ function gsapRegisterOff() {
     let animatedRegister = gsap.timeline({
         repeat: 0
     });
+    animatedRegister.to('.title-register', {
+        delay: 0,
+        transition: 1.5,
+        opacity: 0,
+        y: -20,
+        ease: 'ease.InOut',
+    });
     animatedRegister.to('.inputs1', { 
         delay: 0,
         transition: 1.5,
-        x: -50,
+        opacity: 0,
+        y: -20,
         ease: 'ease.InOut',
-    });
+    }, '-=1');
     animatedRegister.to('.inputs2', { 
         delay: 0,
         transition: 1.5,
-        x: -50,
+        opacity: 0,
+        y: -20,
         ease: 'ease.InOut',
     }, '-=2');
     animatedRegister.to('.inputs3', { 
         delay: 0,
         transition: 1.5,
-        x: -50,
+        opacity: 0,
+        y: -20,
         ease: 'ease.InOut',
     }, '-=1.5');
     animatedRegister.to('.inputs-btn', { 
         delay: 0,
         transition: 1.5,
-        x: -50,
+        y: -20,
+        opacity: 0,
         ease: 'ease.InOut',
     }, '-=3');
 }
@@ -240,18 +267,21 @@ function gsapServices() {
         delay: 0,
         transition: 1.5,
         x: 0,
+        opacity: 1,
         ease: 'ease.InOut',
     });
     animatedServices.to('textarea', {
         delay: 0,
         transition: 1.5,
         x: 0,
+        opacity: 1,
         ease: 'ease.InOut',
     }, '-=1');
-    animatedServices.to('.div-btns', {
+    animatedServices.to('.inputs-btn2', {
         delay: 0,
         transition: 1,
-        x: 0,
+        y: -50,
+        opacity: 1,
         ease: 'ease.InOut',
     }, '-=1.5');
 }
@@ -263,18 +293,21 @@ function gsapServicesOff() {
         delay: 0,
         transition: 1.5,
         x: 50,
+        opacity: 0,
         ease: 'ease.InOut',
     });
     animatedServices.to('textarea', {
         delay: 0,
         transition: 1.5,
         x: 50,
+        opacity: 0,
         ease: 'ease.InOut',
     }, '-=1.3');
-    animatedServices.to('.div-btns', {
+    animatedServices.to('.inputs-btn2', {
         delay: 0,
         transition: 1.5,
-        x: 50,
+        y: 0,
+        opacity: 0,
         ease: 'ease.InOut',
     }, '-=1.5');
 }
