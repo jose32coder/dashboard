@@ -591,7 +591,6 @@ main .pages ul li:nth-child(5){
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 600px;
     width: 75%;
     box-shadow: var(--box-shadow-darkness);
     background: var(--color-white);
@@ -604,6 +603,7 @@ main .pages ul li:nth-child(5){
     z-index: -1;
 }
 #pop-up.active{
+    height: 90%;
     top: 50%;
     visibility: visible;
     opacity: 10;
