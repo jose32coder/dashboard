@@ -591,6 +591,7 @@ main .pages ul li:nth-child(5){
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 500px;
     width: 75%;
     box-shadow: var(--box-shadow-darkness);
     background: var(--color-white);
@@ -603,7 +604,6 @@ main .pages ul li:nth-child(5){
     z-index: -1;
 }
 #pop-up.active{
-    height: 90%;
     top: 50%;
     visibility: visible;
     opacity: 10;
@@ -992,6 +992,15 @@ main .pages ul li:nth-child(5){
     }
     .top .profile-theme{
         display: none;
+    }
+    #pop-up.active{
+        height: 600px;
+        display: block;
+        top: 50%;
+        visibility: visible;
+        opacity: 10;
+        transition: 1s;
+        z-index: 1;
     }
 
     .div-inputs-btn{
