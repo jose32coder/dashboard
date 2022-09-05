@@ -235,7 +235,6 @@ main .search-item{
     margin-top: 20px;
     display: block;
     text-align: center;
-    /* background: var(--color-white); */
     border-radius: var(--border-radius-1);
 }
 main .search-item .input_search{
@@ -487,7 +486,7 @@ main .search-item a{
     font-size: 12px;
     padding: 5px 0 5px 15px;
     width: 100%;
-    z-index: 100;
+    z-index: 1;
     color: var(--color-dark);
  }
  .caja-select select:focus{ 
@@ -629,18 +628,12 @@ main .search-item a{
     box-shadow: none;
 }
 .right .items-inventory table thead{
-    position: -webkit-sticky; /* Safari... */
     position: sticky;
     top: 0;
     left: 0;
     background: var(--color-white);
     height: 30px;
     z-index: 1000;
-}
-.right table thead tr th:nth-child(7){
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .right table thead tr th:nth-child(3){
     width: 35%;
@@ -703,6 +696,24 @@ main .search-item a{
     aside .sidebar h3{
         display: none;
     }
+    main .search-item{
+        width: 100%;
+    }
+    main .search-item .input_search{
+        width: 80%;
+        padding: .8rem 2rem .2rem .2rem;
+    }
+    main .search-item .label_search{
+        left: 25px;
+    }
+    main .search-item a{
+        right: 25px;
+    }
+    
+    
+    .right .full-item{
+        height: 52%;
+    }
     .right .filter-select{
         display: flex;
         width: auto;
@@ -710,13 +721,6 @@ main .search-item a{
     .right .filter-select .caja-select:nth-child(3){
         display: none;
      }
-     /* .right .filter-btn .filter-agg{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 80%;
-        margin: 1px 20px 0 0;
-     } */
      .filter-agg .btn-modal{
         padding-bottom: 8px;
      }
@@ -725,6 +729,9 @@ main .search-item a{
      }
 }
 @media screen and (max-width:938px) {
+    .right .full-item{
+        height: 54%;
+    }
     .right .full-item .filter-item{
         display: grid;
     }
@@ -761,15 +768,16 @@ main .search-item a{
     .right table thead tr th:nth-child(4){
         width: auto;
     }
-    .right table thead tr th:last-child,
     .right table thead tr th:first-child,
     .right table thead tr th:nth-child(4),
-    .right table thead tr th:nth-child(5){
+    .right table thead tr th:nth-child(5),
+    .right table thead tr th:nth-child(6){
         display: none;
     } 
     .right table tbody tr td:first-child,
     .right table tbody tr td:nth-child(4),
-    .right table tbody tr td:nth-child(5){
+    .right table tbody tr td:nth-child(5),
+    .right table tbody tr td:nth-child(6){
         display: none;
     }
     .cursor-pointer{
@@ -778,7 +786,8 @@ main .search-item a{
     
 }
 
-@media screen and (max-width:774px) {
+
+@media screen and (max-width:720px) {
     body{
         overflow: auto;
     }
@@ -795,6 +804,7 @@ main .search-item a{
     }
     .container{
         width: 94%;
+        height: 100vh;
         grid-template-columns: 1fr;
     }
     aside{
@@ -861,10 +871,39 @@ main .search-item a{
         width: 100%;
         margin: 0;
     }
+
+    main .search-item{
+        width: 100%;
+    }
+    main .search-item .input_search{
+        width: 90%;
+        padding: .8rem 2rem .2rem .2rem;
+    }
+    main .search-item .label_search{
+        left: 25px;
+    }
+    main .search-item a{
+        right: 25px;
+    }
+
+
+
+    .profits-item{
+        margin: 50px 0;
+        background: transparent;
+        height: auto;
+    }
+    
+    
+    .profits-item .profits-total{
+        height: auto;
+    }
+
+
     .right{
         width: 94%;
-        padding-top: 50px;
-        margin: 0 auto 4rem;
+        margin: 0 1rem;
+        height: 60%;
     }
     .right .top{
         position: fixed;
@@ -883,6 +922,13 @@ main .search-item a{
     .right .top .theme-toggler{
         width: 4.4rem;
         margin-left: 50%;
+    }
+    .right .full-item{
+        height: 80%;
+    }
+    .right .items-inventory{
+        margin-top: 55px;
+        height: 82%;
     }
     .right .top button {
         display: inline-block;
@@ -921,12 +967,41 @@ main .search-item a{
     main .pages ul li:nth-child(6){
         display: none;
     }
-    /* main table thead tr th:nth-child(5),
-    main table thead tr th:nth-child(3){
-        display: none;
+
+    main .search-item .input_search{
+        width: 88%;
+        padding: .8rem 2.5rem .5rem .2rem;
     }
-    main table tbody tr td:nth-child(5),
-    main table tbody tr td:nth-child(3){
-        display: none;
-    } */
+    main .search-item .label_search{
+        top: 8px;
+        left: 22px;
+    }
+    main .search-item a{
+        top: 10px;
+        right: 20px;
+    }
+   
+    .profits-item .profits-total .total-containt{
+        width: 100%;
+        padding: 8px 0;
+    }
+    
+    .profits-item .profits-total{
+        height: auto;
+    }
+    
+    .profits-item .ganancy .container-ganancy{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        border-radius: var(--border-radius-3);
+        padding: 10px 0 0 0;
+        box-shadow: var(--box-shadow);
+        transition: all 300ms ease;
+        color: var(--color-dark-variant);
+    }
+
 }

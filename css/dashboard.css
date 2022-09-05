@@ -435,10 +435,16 @@ main .recent-orders a{
 /* ================= RECENT UPDATES ============== */
 
 .right .recent-updates{
-    margin-top: 1rem;
+    margin-top: 2.2rem;
 }
-.right .recent-updates h2{
-    margin-bottom: 0.87rem;
+.right .recent-updates .title-notes{
+    display: flex;
+    padding: 5px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.right .recent-updates span{
+    cursor: pointer;
 }
 .right .recent-updates .updates{
     background: var(--color-white);
@@ -446,17 +452,20 @@ main .recent-orders a{
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
-.right .recent-updates .updates .message{
-    margin-bottom: 20px;
-}
 .right .recent-updates .updates:hover{
     box-shadow: none;
 }
-.right .recent-updates .updates .update{
-    display: grid;
-    grid-template-columns: 2.6rem auto;
-    gap: 1rem;
-    margin-bottom: 1rem;
+.right .recent-updates .updates .message{
+    margin-bottom: 20px;
+}
+.right .recent-updates .updates .more-message{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.right .recent-updates .updates span{
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 /* ================= SALES ANALYTICS ============== */
@@ -523,6 +532,48 @@ main .recent-orders a{
 .right .sales-analytics .refresh-product div h3{
     font-weight: 600;
 }
+
+
+/* =================  ================= */
+
+
+.container#blur.active{
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#pop-up{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 600px;
+    width: 75%;
+    box-shadow: var(--box-shadow-darkness);
+    background: var(--color-white);
+    color: var(--color-dark);
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    transition: 1s;
+    border-radius: var(--border-radius-2);
+    z-index: -1;
+}
+#pop-up.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 10;
+    transition: 1s;
+    z-index: 1;
+}
+
+
+
+
+
+
+
 /* ================= MEDIA QUERIES AND RESPONSIVE BIG TABLETS AND LAPTOPS ============== */
 
 @media screen and (max-width:1200px) {
