@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="disabled"></div>
-    <div class="container">
+    <div class="container" id="blur">
          <!-------------------- CONTAINER LEFT - MENÚ LATERAL --------------------->
 
             <aside>
@@ -28,13 +28,13 @@
                         <span class="material-symbols-sharp">window</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#" class="">
+                    <a href="./customers.html" class="">
                         <span class="material-symbols-sharp">person_outline </span>
                         <h3>Customers</h3>
                     </a>
-                    <a href="#">
+                    <a href="./inventary.html">
                         <span class="material-symbols-sharp">mail_outline</span>
-                        <h3>Messages</h3>
+                        <h3>Inv and Pro</h3>
                         <span class="message-count">26</span>
                     </a>
                     <a href="#">
@@ -140,7 +140,12 @@
             <!---------- FINALIZA EL PANEL DE ADMIN ---------->
 
             <div class="recent-updates">
-                <h2>Notes</h2>
+                <div class="title-notes">
+                    <h2>Notes</h2>
+                    <div class="updates-actions">
+                        <span class="material-symbols-sharp" onclick="toggleModal()">add</span>
+                    </div>
+                </div>
                 <div class="updates">
                     <div class="message">
                         <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
@@ -154,6 +159,9 @@
                     <div class="message">
                         <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
                         <small class="text-muted">Hace 2 minutos</small>
+                    </div>
+                    <div class="more-message">
+                        <span class="text-muted" onclick="toggleModal()">Ver más...</span>
                     </div>
                 </div>
             </div>
@@ -207,6 +215,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="pop-up" id="pop-up">
+        <div class="btn-modal" id="btn-modal"><span class="material-symbols-sharp btn-modal" onclick="toggleModal()">close</span></div>
     </div>
     <script src="../js/arrayej.js"></script>
     <script src="../js/index.js"></script>
