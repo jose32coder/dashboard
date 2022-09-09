@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Numero 1</label>
+    <input type="number" id="n1">
+
+    <br>
+
+    <label for="">Numero 2</label>
+    <input type="number" id="n2">
+
+    <br>
+
+    <label for="">Numero 3</label>
+    <input type="number" id="n3">
+    <br><br>
+
+    <div>
+
+    </div>
+
+    <a href="#">Calcular</a href="#">
+
+    <script>
+        n1 = document.querySelector('#n1');
+        n2 = document.querySelector('#n2');
+        n3 = document.querySelector('#n3');
+        div = document.querySelector('div');
+        btn = document.querySelector('a');
+
+
+        btn.addEventListener('click', e =>{
+            e.preventDefault();
+
+            if (n1.value === "" || n2.value === "" || n3.value === "") {
+                console.log("Campos vacíos");
+            }
+            else{
+                if(n1.value > n2.value && n1.value > n3.value){
+            console.log("Numero 1 es mayor");
+
+                    if(n2.value > n3.value){
+                        console.log("Numero 3 es menor");
+                    }
+                    else{
+                        console.log("Numero 2 es menor");
+                    }
+                }
+                else{
+                    if(n2.value > n1.value && n2.value > n3.value){
+                        console.log("Numero 2 es mayor");
+                        if (n1.value > n3.value) {
+                            console.log("Numero 3 es menor");
+                        }
+                        else{
+                            console.log("Numero 1 es menor");
+                        }
+                    }
+                    else{
+                        if(n3.value > n1.value && n3.value > n3.value){
+                            console.log("Numero 3 es mayor");
+                            if (n2.value > n1.value) {
+                                console.log('Numero 1 es menor')
+                            }
+                            else{
+                                console.log("Numero 2 es menor");
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        
+            
+        })
+
+        
+
+    </script>
+</body>
+</html>
