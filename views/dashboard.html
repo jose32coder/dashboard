@@ -217,9 +217,44 @@
         </div>
     </div>
     <div class="pop-up" id="pop-up">
-        <div class="btn-modal" id="btn-modal"><span class="material-symbols-sharp btn-modal" onclick="toggleModal()">close</span></div>
+        <nav>
+            <div class="background"></div>
+            <span>Notas</span>
+            <div class="btn-modal" id="btn-modal"><span class="material-symbols-sharp btn-modal" onclick="toggleModal()">close</span></div>
+        </nav>
+        <form action="">
+            <div class="div-inputs">
+                <div class="inputs">
+                    <input type="text" id="tituloN" placeholder=" " class="input-modal">
+                    <label for="tituloN" class="label-modal text-muted"> Titulo:</label>
+                </div>
+        
+<!-- AQUI VA EL RADIO -->
+
+
+                <div class="inputs textareas">
+                    <textarea type="text" id="textarea" placeholder=" " class="textarea input-modal "></textarea>
+                    <label for="textarea" class="label-modal text-muted"> Mensaje:</label>
+                    <div class="btn">
+                        <button>Agregar</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="search-item">
+                <input type="text" class="input_search input-modal" name="" id="search" placeholder=" ">
+                <label for="search" class="label_search label-modal">Busqueda:</label>
+                <a href=""><span class="material-symbols-sharp">search</span>
+                </a>
+            </div>
+        </form>
+        <div class="containt-notes">
+            <div class="text-notes">
+                Mensaje completo del usuario a guardar, o mas que mensaje, una nota completa del usuario.
+            </div>
+        </div>
     </div>
     <script src="../js/arrayej.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

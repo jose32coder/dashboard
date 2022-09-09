@@ -28,6 +28,7 @@
     --padding-1: 1.2rem;
 
     --box-shadow: 0 2rem 3rem var(--color-light);
+    --box-shadow-darkness: 0 2rem 3rem var(--color-dark-variant);
 }
 .dark-theme-variables {
     --color-background: #181a1e;
@@ -43,7 +44,6 @@
     margin: 0;
     padding: 0;
     outline: 0;
-    appearance: none;
     border: 0;
     text-decoration: none;
     list-style: none;
@@ -548,13 +548,15 @@ main .recent-orders a{
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 600px;
-    width: 75%;
+    height: 700px;
+    width: 70%;
     box-shadow: var(--box-shadow-darkness);
     background: var(--color-white);
     color: var(--color-dark);
     visibility: hidden;
     opacity: 0;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     transition: 1s;
     border-radius: var(--border-radius-2);
@@ -568,10 +570,166 @@ main .recent-orders a{
     z-index: 1;
 }
 
+#pop-up nav{
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background: transparent;
+}
+#pop-up nav .background{
+    width: 100%;
+    height: 60px;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    opacity: .8;
+    background: var(--color-primary);
+}
+#pop-up nav span{
+    color: var(--color-dark);
+    font-size: 1.5rem;
+}
+
+#pop-up .btn-modal{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+#pop-up form{
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.div-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.div-inputs .inputs{
+    position: relative;
+    padding: .6rem 2.5rem;
+    margin-top: 20px;
+    width: 100%;
+    transform: translateY(-10px);
+}
+.div-inputs .inputs .input-modal{
+    width: 80%;
+    font-size: 1rem;
+    color: var(--color-dark);
+    background: transparent;
+    border-bottom: 1px solid var(--color-dark);
+    height: 40px;
+    padding: 0 0rem;
+    padding-top: .8rem;
+    outline: none;
+}
 
 
 
+/* INPUTS RADIO AQUI */
 
+
+
+.div-inputs .textareas{
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+}
+.div-inputs .inputs .textarea{
+    height: 70px;
+    width: 100%;
+    resize: none;
+}
+.div-inputs .inputs .label-modal{
+    color: var(--color-dark);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    font-size: 1rem;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+
+.input-modal:focus + .label-modal,
+.input-modal:not(:placeholder-shown) + .label-modal{
+    transform: translateY(-5px) scale(.7);
+    transform-origin: top left;
+    color: var(--color-dark);
+}
+.textarea:focus + .label-textarea,
+.textarea:not(:placeholder-shown) + .label-textarea{
+    transform: translateY(-20px) scale(.7);
+    transform-origin: top left;
+    color: var(--color-dark);
+}
+
+.div-inputs .textareas .btn{
+    display: flex;
+    justify-content: space-between;
+}
+.div-inputs .inputs button{
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 10px 10px;
+    margin-top: 12px;
+    width: 100px;
+    text-transform: uppercase;
+    background: var(--color-info-light);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.div-inputs .inputs button:hover{
+    box-shadow: none;
+    color: var(--color-info-light);
+    background: var(--color-primary);
+}
+
+
+
+.search-item{
+    position: relative;
+    padding: .6rem 0rem;
+    margin-top: 40px;
+    display: block;
+    width: 50%;
+    text-align: center;
+    border-radius: var(--border-radius-1);
+}
+.search-item .input_search{
+    width: 70%;
+    font-size: 1rem;
+    color: var(--color-dark);
+    background: transparent;
+    border-bottom: 1px solid var(--color-dark);
+    padding: .4rem .2rem;
+    outline: none;
+}
+.search-item .label_search{
+    color: var(--color-dark);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 68px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+.search-item a{
+    position: absolute;
+    top: 5px;
+    right: 65px;
+}
+
+
+
+.containt-notes{
+    padding: 1.2rem 3rem;
+}
 
 
 /* ================= MEDIA QUERIES AND RESPONSIVE BIG TABLETS AND LAPTOPS ============== */

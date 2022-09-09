@@ -679,7 +679,6 @@ main .pages ul li:nth-child(5){
     flex-direction: column;
     gap: 2rem;
     transition: 1.5s;
-    overflow: scroll;
     padding-bottom: 3rem;
 }
  .pop-up #card.active{
