@@ -67,7 +67,8 @@ body{
     display: grid;
     width: 100%;
     margin: 0 auto;
-    padding-right: 4%;
+    overflow: hidden;
+    padding-right: 2%;
     gap: 1.8rem;
     grid-template-columns: 14rem auto 23rem;
 }
@@ -98,7 +99,9 @@ h5{
 small{
     font-size: 0.75rem;
 }
-
+.ocultar{
+    display: none;
+}
 .profile-photo{
     width: 2.8rem;
     height: 2.8rem;
@@ -108,6 +111,7 @@ small{
 .text-muted{
     color: var(--color-info-dark);
 }
+
 p{
     color: var(--color-dark-variant);
 }
@@ -169,7 +173,7 @@ aside .sidebar{
     height: 91vh;
     width: 100%;
     flex-direction: column;
-    padding-top: 10rem;
+    padding-top: 15rem;
     top: 3rem;
     border-radius: 0% 40% 0% 0% / 10% 10% 10% 0%;
     background: var(--color-dark2);
@@ -232,115 +236,66 @@ aside .sidebar .message-count{
 main{
     margin-top: 1.4rem;
 }
-main .date{
-    display: inline-block;
-    position: relative;
-    background: var(--color-light);
-    border-radius: var(--border-radius-1);
-    margin-top: 1rem;
-    padding: 0.5rem 1.6rem;
-}
-main .date input[type='date']{
-    background: transparent;
-    color: var(--color-dark);
-}
+
 main .insights{
     display: flex;
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: column;
+    margin-top: 3rem;
     gap: 1.6rem;
-    height: 25%;
+    height: auto;
 }
-main .insights .options{
-    background: var(--color-white);
-    padding: var(--card-padding);
-    margin-top: 2rem;
+main .insights h2{
+    text-align: left;
+}
+main .insights .all-card{
     width: 100%;
-    box-shadow: var(--box-shadow);
-    transition: all 300ms ease;
+    display: flex;
+    justify-content: space-between;
 }
-main .insights .options .container-modal{
-    text-align: center;
-    width: 100px;
-    transition: all 300ms ease;
-    background: var(--color-dark);
-    color: var(--color-white);
-    border: 1px solid var(--color-dark);
-    padding: 12px;
-    transform: translate(30px, -50px);
-    display: none;
+main .box p {
+    color: var(--color-dark);
 }
-main .insights .options .container-modal::before{
-    content: '';
-    position: absolute;
-    top: 30px;
-    left: 60px;
-    width: 20px;
-    height: 18px;
-    background: var(--color-dark);
-    border: none;
+
+main .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     border-radius: 5px;
-    transform: rotate(45deg);
+    width: 31.5%;
+    height: 250px;
+    border-radius: var(--border-radius-2);
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+    padding: 10px 15px;
+    transition: all 300ms ease;
 }
-main .insights .options .container-modal a{
-    color: var(--color-white);
+main .box:hover{
+    box-shadow: none;
+}
+main .box h2{
+    text-align: left;
+    font-size: 2rem;
+}
+main .box .info{
+    margin-top: 10px;
     width: 100%;
-    height: 100%;
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    border-top: 2px solid var(--color-primary);
 }
-main .insights .full-menu-income{
-    display: flex;
-    font-size: 12px;
-    justify-content: space-between;
-}
-main .insights .full-menu-income div{
-    cursor: pointer;
-}
-main .insights .menu-income{
-    display: flex;
-    width: 90%;
-    border-bottom: .1px solid var(--color-info-light);
-}
-main .insights .menu-income li{
-    margin-left: 50px;
+main .box p{
+    font-size: .8rem;
+    margin-top: 5px;
+    height: 80%;
+    color: var(--color-dark);
 }
 
-main .insights .menu-income li:hover{
-    border-bottom: 2px solid var(--color-primary);
-}
-main .insights .menu-income li:nth-child(1){
-    margin: 0;
-}
-main .insights .middle-full{
-    display: flex;
-}
-main .insights .middle{
-    display: flex;
-    width: 40%;
-    align-items: center;
-    justify-content: space-between;
-}
-main .insights .right-t{
-    width: 60%;
+main .insights .more-p{
+    width: 100%;
     text-align: center;
 }
-main .insights h3{
-    margin: 1rem 0 0.6rem;
-    font-size: 1rem;
-}
-main .insights h1{
-    text-align: center;
-}
-
-main .insights small{
-    margin-top: 1.3rem;
-    display: block;
-}
-main .btn-modal-1{
-    display: flex;
-    transition: all 300ms ease;
-}
-main .btn-modal-2{
-    transition: all 300ms ease;
-    display: none;
+main .insights .more-p a{
+    color: var(--color-primary);
 }
 
 /* ================= RECENT ORDERS ============== */
@@ -358,23 +313,31 @@ main .recent-orders table{
     text-align: center;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    border-radius: var(--border-radius-2);
 }
 main .recent-orders table:hover{
     box-shadow: none;
+}
+main table tbody tr:hover{
+    transition: all 300ms ease;
+    transform: translateX(10px);
+    background: var(--color-info-dark);
+    color: var(--color-white);
+    box-shadow: 0 1rem 3rem #25354d;
 }
 main table tbody td{
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
 }
+main table tbody td:hover{
+    color: #ffffff;
+}
 main table tbody tr th{
     margin: 0;
 }
 main table tbody tr:last-child td{
     border: none;
-}
-main table tbody tr td:last-child{
-    cursor: pointer;
 }
 
 main .recent-orders a{
@@ -445,12 +408,14 @@ main .recent-orders a{
 }
 .right .recent-updates span{
     cursor: pointer;
+    color: var(--color-primary);
 }
 .right .recent-updates .updates{
     background: var(--color-white);
     padding: var(--card-padding);
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    border-radius: var(--border-radius-2);
 }
 .right .recent-updates .updates:hover{
     box-shadow: none;
@@ -465,7 +430,7 @@ main .recent-orders a{
 }
 .right .recent-updates .updates span{
     cursor: pointer;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 /* ================= SALES ANALYTICS ============== */
@@ -534,7 +499,18 @@ main .recent-orders a{
 }
 
 
-/* =================  ================= */
+
+
+
+
+
+
+
+/* ================= POP-UP ================= */
+
+
+
+
 
 
 .container#blur.active{
@@ -576,13 +552,14 @@ main .recent-orders a{
     padding: 15px 0;
     background: transparent;
 }
-#pop-up nav .background{
-    width: 100%;
+#pop-up nav #progress-bar{
+    width: 0;
     height: 60px;
     z-index: -1;
     position: absolute;
     top: 0;
     opacity: .8;
+    transition: all 1.5s ease;
     background: var(--color-primary);
 }
 #pop-up nav span{
@@ -599,23 +576,25 @@ main .recent-orders a{
 #pop-up form{
     width: 100%;
     height: auto;
-    display: flex;
 }
 .div-inputs{
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    width: 100%;
 }
 
 .div-inputs .inputs{
     position: relative;
-    padding: .6rem 2.5rem;
-    margin-top: 20px;
+    padding: .6rem 0 .6rem 2.5rem;
+    margin-top: 30px;
     width: 100%;
     transform: translateY(-10px);
 }
+.div-inputs .inputs1,
+.inputs2{
+    opacity: 0;
+}
 .div-inputs .inputs .input-modal{
-    width: 80%;
+    width: 90%;
     font-size: 1rem;
     color: var(--color-dark);
     background: transparent;
@@ -626,31 +605,45 @@ main .recent-orders a{
     outline: none;
 }
 
-
-
-/* INPUTS RADIO AQUI */
-
-
-
-.div-inputs .textareas{
-    margin-top: 0px;
-    display: flex;
-    flex-direction: column;
+.div-inputs .inputs:nth-child(2) .input-modal{
+    width: 70%;
 }
-.div-inputs .inputs .textarea{
-    height: 70px;
-    width: 100%;
-    resize: none;
-}
-.div-inputs .inputs .label-modal{
+.inputs .label-modal{
     color: var(--color-dark);
-    cursor: pointer;
     position: absolute;
     top: 10px;
     left: 35px;
     font-size: 1rem;
     transform: translateY(10px);
     transition: transform .5s, color .3s;
+}
+.inputs span{
+    position: absolute;
+    top: 20px;
+    right: 28%;
+    z-index: -1;
+}
+
+
+
+.div-textareas{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-inputs .textareas{
+    margin-top: 0px;
+}
+.div-inputs .inputs .textarea{
+    height: 100px;
+    width: 100%;
+    resize: none;
+}
+.error{
+    display: flex;
+    color: #c01313;
+    font-size: .8rem;
 }
 
 
@@ -660,75 +653,103 @@ main .recent-orders a{
     transform-origin: top left;
     color: var(--color-dark);
 }
-.textarea:focus + .label-textarea,
-.textarea:not(:placeholder-shown) + .label-textarea{
-    transform: translateY(-20px) scale(.7);
+
+.textarea:focus + .label-modal,
+.textarea:not(:placeholder-shown) + .label-modal{
+    transform: translateY(-10px) scale(.7);
     transform-origin: top left;
     color: var(--color-dark);
 }
 
-.div-inputs .textareas .btn{
+.div-inputs .btn{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    transform: translateY(-10px);
 }
-.div-inputs .inputs button{
-    color: var(--color-primary);
+.div-inputs  .btn button:nth-child(2){
+    margin-left: 20px;
+}
+.div-inputs button{
+    color: var(--color-white);
     text-decoration: none;
     letter-spacing: 1px;
     padding: 10px 10px;
     margin-top: 12px;
     width: 100px;
+    font-size: .8rem;
     text-transform: uppercase;
-    background: var(--color-info-light);
-    box-shadow: var(--box-shadow);
+    background: linear-gradient(120deg, var(--color-primary) 80%, var(--color-dark) 20%);
+    border-radius: var(--border-radius-1);
+    opacity: .8;
     cursor: pointer;
     transition: all 300ms ease;
 }
-.div-inputs .inputs button:hover{
-    box-shadow: none;
-    color: var(--color-info-light);
-    background: var(--color-primary);
-}
 
 
 
-.search-item{
-    position: relative;
-    padding: .6rem 0rem;
-    margin-top: 40px;
-    display: block;
-    width: 50%;
-    text-align: center;
-    border-radius: var(--border-radius-1);
-}
-.search-item .input_search{
-    width: 70%;
-    font-size: 1rem;
-    color: var(--color-dark);
-    background: transparent;
-    border-bottom: 1px solid var(--color-dark);
-    padding: .4rem .2rem;
-    outline: none;
-}
-.search-item .label_search{
-    color: var(--color-dark);
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 68px;
-    transform: translateY(10px);
-    transition: transform .5s, color .3s;
-}
-.search-item a{
-    position: absolute;
-    top: 5px;
-    right: 65px;
-}
+
 
 
 
 .containt-notes{
-    padding: 1.2rem 3rem;
+    margin: 1.2rem 2rem;
+    padding: 0 1rem;
+    background: var(--color-background);
+    width: 92%;
+    height: 55%;
+    opacity: 0;
+    border: 1px solid var(--color-info-dark);
+    overflow-y: scroll;
+    overflow-x: none;
+}
+.containt-notes .containt__text{
+    margin: 1rem 0rem;
+    padding: 1rem;
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    transition: all 500ms ease;
+}
+.containt-notes .containt__text:hover{
+    box-shadow: none;
+}
+
+.containt-notes .containt__text .containt__messages{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-dark);
+}
+.containt__messages p{
+    width: 100%;
+    text-align: justify;
+    font-size: .8rem;
+}
+.containt__messages div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+.containt__messages div span{
+    cursor: pointer;
+    margin: 1.5rem 1rem .5rem 1rem;
+}
+
+
+.containt-notes::-webkit-scrollbar {
+    width: 5px;
+}
+   
+.containt-notes::-webkit-scrollbar-track {
+    background: var(--color-dark);
+}
+
+.containt-notes::-webkit-scrollbar-thumb {
+    background: var(--color-primary); 
 }
 
 
@@ -737,8 +758,7 @@ main .recent-orders a{
 @media screen and (max-width:1200px) {
     .container{
         width: 100%;
-        padding: 0;
-        grid-template-columns: 7rem auto 23rem;
+        grid-template-columns: 7rem auto 20rem;
     }
     aside .logo h2{
         display: none;
@@ -746,15 +766,57 @@ main .recent-orders a{
     aside .sidebar h3{
         display: none;
     }
+
     main .insights{
-        height: 40%;
+        margin-bottom: 2em;
+        gap: 1rem;
+        height: auto;
     }
+    main .insights .all-card{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    
+    main .box {
+        width: 48%;
+        height: 165px;
+    }
+    main .box:last-child{
+        margin-top: 10px;
+        width: 100%;
+    }
+    main .box h2{
+        text-align: left;
+        font-size: 2rem;
+    }
+    main .box .info{
+        margin-top: 10px;
+        width: 100%;
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+        border-top: 2px solid var(--color-primary);
+    }
+    main .box p{
+        font-size: .8rem;
+        margin-top: 5px;
+        height: 80%;
+        color: var(--color-dark);
+    }
+    
+
     main .recent-orders{
-        width: 94%;
+        width: 100%;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
         margin: 2rem 0 0 8.8rem;
+    }
+    
+    main .recent-orders a{
+        margin-left: -70px;
     }
     main .recent-orders table{
         width: 84%;
@@ -763,9 +825,12 @@ main .recent-orders a{
     main table thead tr th:first-child,
     main table thead tr th:nth-child(4){
         display: none;
-    } 
+    }
+    main table tbody tr:last-child,
+    main table tbody tr:last-child,
     main table tbody tr td:first-child,
-    main table tbody tr td:nth-child(4){
+    main table tbody tr td:nth-child(4),
+    main table tbody tr td:nth-child(7){
         display: none;
     }
     .right{
@@ -773,19 +838,29 @@ main .recent-orders a{
     }
     .right .recent-updates{
         padding-top: 6%;
+        height: 100%;
     }
     .right .recent-updates .updates{
-        padding-top: 3%;
+        padding-top: 8%;
+        height: 36.8%;
     }
     .right .sales-analytics{
         display: none;
+    }
+    .div-inputs .inputs:nth-child(2) .input-modal{
+        width: 90%;
+    }
+    .inputs span{
+        position: absolute;
+        top: 20px;
+        right: 10%;
     }
 }
 
 
 /* ================= MEDIA QUERIES AND RESPONSIVE SMALL TABLETS AND SMARTPHONES ============== */
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 798px){
     .container{
         width: 94%;
         grid-template-columns: 1fr;
@@ -835,15 +910,10 @@ main .recent-orders a{
         margin-top: 8rem;
         padding: 0 1rem;
     }
-    main .insights{
-        height: 32%;
-    }
-    main .insights .middle .left h3,
-    main .insights .middle .left h1{
-        font-size: 2rem;
-    }
+   
+
     .text-muted{
-        font-size: 1rem;
+        font-size: .8rem;
     }
     main .recent-orders{
         position: relative;
@@ -854,9 +924,11 @@ main .recent-orders a{
         width: 100%;
         margin: 0;
     }
+    main .recent-orders a{
+        margin-left: 0;
+    }
     .right{
         width: 94%;
-        padding-top: 50px;
         margin: 0 auto 4rem;
     }
     .right .top{
@@ -888,10 +960,127 @@ main .recent-orders a{
     .right .top button span{
         font-size: 2rem;
     }
+    .right .recent-updates{
+        height: auto;
+    }
+    .right .sales-analytics{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #pop-up{
+        width: 90%;
+        overflow-y: auto;
+    }
+    .div-inputs .inputs:nth-child(2) .input-modal{
+        width: 90%;
+    }
+    .containt-notes{
+        width: 90%;
+        margin: 1.2rem 1.5rem;
+        height: 100%;
+    }
+    
+
+}
+@media screen and (max-width:610px) {
+    .containt-notes{
+        width: 90%;
+        margin: 1.2rem 1.5rem;
+        height: 50%;
+    }
+    .div-inputs{
+        flex-direction: column-reverse;
+    }
+    .div-inputs:nth-child(2){
+        flex-direction: column;
+    }
+    .div-inputs .inputs{
+        position: relative;
+        padding: .6rem 0 .6rem 2.5rem;
+        margin-top: 0px;
+        width: 100%;
+        transform: translateY(-10px);
+    }
+    .div-inputs .inputs:nth-child(2){
+        margin-top: 10px;
+    }
+    .div-inputs .inputs .input-modal{
+        width: 100%;
+        font-size: .8rem;
+    }
+    .div-inputs .inputs .input-modal:nth-child(1){
+        width: 90%;
+    }
+    .div-inputs .inputs:nth-child(2) .input-modal{
+        width: 70%;
+    }
+    .div-textareas{
+        width: 100%;
+    }
+    .div-inputs .textareas .btn{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .inputs span{
+        position: absolute;
+        top: 20px;
+        right: 28%;
+    }
 }
 
-@media screen and (max-width: 451px){
+@media screen and (max-width:540px){
+    main .insights{
+        margin-bottom: 4em;
+        gap: 1rem;
+        height: auto;
+    }
+    main .insights .all-card{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    
+    main .box {
+        width: 100%;
+        height: 180px;
+        margin-top: 10px;
+    }
+    main .box:last-child{
+        
+        width: 100%;
+    }
+    main .box h2{
+        text-align: left;
+        font-size: 2rem;
+    }
+    main .box .info{
+        margin-top: 10px;
+        width: 100%;
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+        border-top: 2px solid var(--color-primary);
+    }
+    main .box p{
+        font-size: .8rem;
+        margin-top: 5px;
+        height: 80%;
+        color: var(--color-dark);
+    }
+}
+
+@media screen and (max-width: 480px){
     .right .profile .info{
         display: none;
     }
+
+    #pop-up{
+        height: 550px;
+        width: 90%;
+        overflow-y: auto;
+    }
+    
+   
 }

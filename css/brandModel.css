@@ -6,7 +6,7 @@
 :root{
     --color-primary: #d64949;
     --color-danger: #d64949;
-    --color-success: #41f1b6;
+    --color-success: #285f41;
     --color-await: #6259df;
     --color-warning: #ffbb55;
     --color-white: #ffffff;
@@ -35,6 +35,7 @@
     --color-white: #282528;
     --color-dark: #edeffd;
     --color-dark2: #2f2f30;
+    --color-success: #41f1b6;
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(0, 0, 0, 0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
@@ -150,7 +151,7 @@ aside .top{
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    padding-top: 1.5rem;
+    padding-top: 0;
     padding-left: 0.8rem;
     display: flex; 
     
@@ -158,6 +159,7 @@ aside .top{
 aside .logo{
     display: flex;
     gap: 0.8rem;
+    padding-top: 1.5rem;
 }
 aside .logo img{
     height: 2.2rem;
@@ -232,7 +234,11 @@ aside .sidebar .message-count{
     border-radius: var(--border-radius-1);
 }
 
+
+
 /* ================= MAIN ================ */
+
+
 
 main{
     margin-top: 1.4rem;
@@ -268,6 +274,7 @@ main .theme-toggler span{
     align-items: center;
     justify-content: center;
 }
+
 main .theme-toggler span.inactive{
     color: white;
     border-radius: var(--border-radius-1);
@@ -282,7 +289,6 @@ main .top .profile{
     gap: 2rem;
     text-align: right;
 }
-
 main .top-mobile{
     position: fixed;
     top: 0;
@@ -307,7 +313,7 @@ main .top-mobile{
     font-size: 2rem;
 }
 .top-mobile .theme-toggler-mobile{
-    margin-left: 100px;
+    margin-left: 120px;
     background: var(--color-light);
     display: flex;
     justify-content: space-between;
@@ -341,32 +347,34 @@ main .top-mobile{
     text-align: right;
 }
 
+
 /* ========= DIV TABLE COMPLETO ========= */
 
 
 main .all-table{
     width: 100%;
-    height: 90%;
+    height: 45%;
     padding-top: 20px;
 }
-
-
+main .all-table:last-child{
+    padding-top: 0px;
+}
 
 
 /* ============ FILTRADO Y BUSQUEDA =========== */
 
 main .filter{
-    width: 100%;
+    width: 90%;
+    height: auto;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     margin-top: 0;
-    position: relative;
 }
+
 
 main .filter ul{
     display: flex;
-    width: 100%;
 }
 main .filter ul li{
     display: flex;
@@ -376,7 +384,8 @@ main .filter ul li{
     cursor: pointer;
 }
 
-main .filter ul #mark-order{
+main .filter ul #mark-order,
+main .filter ul #mark-order2{
     position: absolute;
     left: 0;
     height: 4px;
@@ -389,7 +398,8 @@ main .filter ul #mark-order{
 
 main .filter-search{
     position: relative;
-    padding: .6rem 1rem;
+    padding: 1rem 1rem;
+    transform: translateY(10px);
 }
 main .filter-search .input_search{
     width: 250px;
@@ -397,7 +407,7 @@ main .filter-search .input_search{
     color: var(--color-dark);
     background: transparent;
     border-bottom: 1px solid var(--color-dark);
-    height: 50px;
+    height: 40px;
     padding-top: .8rem;
     padding-right: 2.2rem;
     outline: none;
@@ -442,7 +452,8 @@ main .filter-agg{
     position: absolute;
     right: -50%;
 }
-main #button button{
+main #button1 button,
+main #button2 button{
     color: var(--color-dark);
     text-decoration: none;
     letter-spacing: 1px;
@@ -451,19 +462,22 @@ main #button button{
     box-shadow: var(--box-shadow);
     background: transparent;
 }
-#button {
+#button1,
+#button2 {
     position: relative;
     overflow: hidden;
     cursor: pointer;
 }
 
-#button button {
+#button1 button,
+#button2 button {
     position: relative;
     left: 0;
     transition: all .35s ease-out;
 }
 
-#dub-arrow {
+#dub-arrow,
+#dub-arrow2 {
     width: 100%;
     height: 100%;
     background: var(--color-white);
@@ -477,18 +491,22 @@ main #button button{
     bottom: 0;
 }
 
-#button span {
+#button1 span,
+#button2 span {
     width: 20px;
     height: auto;
 }
   
-#button:hover #dub-arrow {
+#button1:hover #dub-arrow,
+#button2:hover #dub-arrow2 {
     left: 0;
 }
   
-#button:hover button {
+#button1:hover button,
+#button2:hover button {
     left: 150px;
 }
+
 
 
 /* =========== TABLE ============ */
@@ -543,7 +561,7 @@ main .dataTables_wrapper .paginate_button{
 main .recent-orders table{
     background: var(--color-white);
     width: 100%;
-    padding: var(--card-padding);
+    padding: var(--padding-1);
     text-align: center;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-3);
@@ -592,9 +610,6 @@ main .recent-orders a{
     margin: 1rem auto;
     color: var(--color-primary);
 }
-
-
-
 /* ============ POP UP O VENTAMA MODAL ========== */
 
 
@@ -604,13 +619,13 @@ main .recent-orders a{
     user-select: none;
 }
 
-#pop-up{
+#pop-up, #pop-up2{
     position: fixed;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 500px;
-    width: 75%;
+    height: 400px;
+    width: 70%;
     box-shadow: var(--box-shadow-darkness);
     background: var(--color-white);
     color: var(--color-dark);
@@ -621,7 +636,7 @@ main .recent-orders a{
     border-radius: var(--border-radius-2);
     z-index: -1;
 }
-#pop-up.active{
+#pop-up.active, #pop-up2.active{
     top: 50%;
     visibility: visible;
     opacity: 10;
@@ -648,21 +663,19 @@ main .recent-orders a{
     opacity: .8;
     transition: 1s;
 }
-.pop-up #progress-bar{
+.pop-up #progress-bar,
+.pop-up #progress-bar2{
     position: absolute;
     display: flex;
     width: 0%;
     height: 100%;
-    background: linear-gradient(120deg, var(--color-primary) 90%, transparent 10%);
+    background: var(--color-primary);
     opacity: .8;
     z-index: -1;
     border-start-start-radius: var(--border-radius-2);
     transition: 1.5s;
 }
-.pop-up #progress-bar.activeC{
-    border-start-end-radius: var(--border-radius-2);
-    background: linear-gradient(var(--color-primary) 100%, transparent 0%);
-}
+
 .pop-up ul li{
     position: absolute;
     display: flex;
@@ -671,10 +684,9 @@ main .recent-orders a{
     text-align: center;
     position: relative;
     font-size: 1.5rem;
-    width: 50%;
+    width: 100%;
     background: transparent;
     color: var(--color-dark);
-    cursor: pointer;
     z-index: 1000;
 }
 
@@ -699,35 +711,13 @@ main .recent-orders a{
     transition: 1.5s;
     padding-bottom: 3rem;
 }
- .pop-up #card.active{
-    z-index: 10;
-    visibility: visible;
-    background: var(--color-white);
-    transition: 1s;
-}
-.pop-up #card2.inactive{
-    transform: translateX(100%);
-    background: var(--color-white);
-    transition: 1s;
-}
-.pop-up #card2.active{
-    z-index: 10;
-    visibility: visible;
-    background: var(--color-white);
-    transition: 1s;
-}
-.pop-up #card2.inactive{
-    visibility: hidden;
-    background: var(--color-white);
-    transition: 1s;
-}
 
 .card .title-register{
     text-align: center;
-    padding-top: 25px;
+    padding-top: 30px;
     height: 10%;
-    opacity: 0;
-    transform: translateY(-20px);
+    color: var(--color-dark);
+    transform: translateY(-25px);
 }
 
 .div-inputs{
@@ -738,9 +728,9 @@ main .recent-orders a{
 .div-inputs .inputs{
     position: relative;
     padding: .6rem 2.5rem;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 50%;
-    transform: translateY(-10px);
+    transform: translateY(-30px);
 }
 .div-inputs .inputs .input-modal{
     width: 100%;
@@ -748,8 +738,8 @@ main .recent-orders a{
     color: var(--color-dark);
     background: transparent;
     border-bottom: 1px solid var(--color-dark);
-    height: 60px;
-    padding: 0 0rem;
+    height: 50px;
+    padding: 0;
     padding-top: .8rem;
     outline: none;
 }
@@ -771,95 +761,13 @@ main .recent-orders a{
     color: var(--color-dark);
 }
 
-.div-inputs-btn{
-    display: flex;
+.pop-up .div-inputs select{
     width: 100%;
-    margin-top: 40px;
-    justify-content: space-evenly;
-}
-.div-inputs-btn .inputs-btn{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px 30px 0 0;
-    transform: translateY(-50px);
-    opacity: 0;
-}
-.inputs-btn2{
-    display: none;
-    opacity: 0;
-}
-.inputs-btn button{
-    margin: 0 10px;
-    color: var(--color-white);
-    text-decoration: none;
-    letter-spacing: 1px;
-    height: 40px;
-    width: 120px;
-    padding: 5px 15px;
-    box-shadow: var(--box-shadow);
-    background: linear-gradient(120deg, var(--color-primary) 80%, var(--color-dark) 20%); 
-    border-radius: var(--border-radius-1);
-    opacity: .8;
-    cursor: pointer;
-    transition: all 1s ease;
-}
-
-.pop-up .card1{
-    gap: 1rem;
-}
-.pop-up .card1 h1{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    height: 100px;
-    transform: translateY(-10);
-}
-.div-textareas{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.div-textareas .inputs{
-    width: 70%;
-}
-.div-inputs .textareas{
-    margin-top: 0px;
-}
-.div-inputs .inputs .textarea{
-    height: 100px;
-    width: 100%;
-    resize: none;
-}
-.div-inputs2{
-    padding: 0 5rem;
-}
-.div-inputs2 .inputs{
-    position: relative;
-    padding: .6rem 2.5rem;
-    margin-bottom: 50px;
-    width: 50%;
-    transform: translateY(-10px);
-}
-.pop-up .div-btns{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    /* transform: translateX(50px); */
-}
-.pop-up .div-inputs2 .inputs:last-child{
-    display: flex;
-    align-items: flex-end;
-    padding: 10px 0;
-}
-.pop-up .div-inputs2 select{
-    width: 100%;
+    height: 50px;
     font-size: 1rem;
     font-weight: normal;
     max-width: 100%;
     color: var(--color-dark);
-    padding: 8px 24px 18px 0;
     border-bottom: 1px solid var(--color-dark);
     background-color: transparent;
     -webkit-appearance: none;
@@ -867,11 +775,11 @@ main .recent-orders a{
     appearance: none;
 }
 
-.pop-up .div-inputs2 .inputs:last-child:after {
+.pop-up .div-inputs .inputs:last-child:after {
     content: "";
     position: absolute;
     bottom: 35%;
-    right: 8px;
+    right: 35px;
     width: 0;
     height: 0;
     margin-top: -2px;
@@ -885,17 +793,23 @@ select:active, select:focus {
     box-shadow: none;
 }
 
-.div-btns .inputs-btn2{
+
+.div-inputs-btn{
     display: flex;
-    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+    justify-content: space-evenly;
+}
+.div-inputs-btn .inputs-btn{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     margin: 30px 30px 0 0;
     transform: translateY(-50px);
 }
-
-.div-btns button{
+.inputs-btn button{
     margin: 0 10px;
-    color: var(--color-white);
+    color: #ffffff;
     text-decoration: none;
     letter-spacing: 1px;
     height: 40px;
@@ -904,21 +818,70 @@ select:active, select:focus {
     box-shadow: var(--box-shadow);
     background: linear-gradient(120deg, var(--color-primary) 80%, var(--color-dark) 20%); 
     border-radius: var(--border-radius-1);
-    opacity: .8;
+    opacity: 1;
     cursor: pointer;
     transition: all 1s ease;
 }
 
-.textarea:focus + .label-modal,
-.textarea:not(:placeholder-shown) + .label-modal{
-    transform: translateY(-15px) scale(.7);
-    transform-origin: top left;
+.item{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+.item .subitem{
+    display: flex;
+}
+.item .subitem span{
+    margin: 0 10px;
     color: var(--color-dark);
 }
 
+.toggle-pill-color input[type="checkbox"] {
+    display: none;
+  }
+  .toggle-pill-color input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    width: 3em;
+    height: 1.6em;
+    margin-bottom: 20px;
+    border-radius: 1em;
+    background: var(--color-danger);
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    -webkit-transition: background 0.1s ease-in-out;
+    transition: background 0.1s ease-in-out;
+  }
+  .toggle-pill-color input[type="checkbox"] + label:before {
+    content: "";
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 1em;
+    background: #fff;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0.2em;
+    top: 0.2em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .toggle-pill-color input[type="checkbox"]:checked + label {
+    background: var(--color-success);
+  }
+  .toggle-pill-color input[type="checkbox"]:checked + label:before {
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    left: 1.6em;
+  }
 
 
-/* ================= MEDIA QUERIES AND RESPONSIVE BIG TABLETS AND LAPTOPS ============== */
+
+
+
+
+
+
+
 
 
 @media screen and (max-width:1200px) {
@@ -933,18 +896,17 @@ select:active, select:focus {
     aside .sidebar h3{
         display: none;
     }
-    main .filter-s-a{
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        align-items: flex-end;
+
+    main .filter-search{
+        margin-right: -70px;
     }
+
     main .filter-agg{
         position: relative;
         margin-top: 20px;
         top: 0;
-        left: -25px;
     }
+
     main .recent-orders{
         width: 95%;
         position: absolute;
@@ -952,46 +914,65 @@ select:active, select:focus {
         transform: translateX(-50%);
         margin: 2rem 0 0 8.5rem;
     }
+    main .dataTables_wrapper{
+        width: auto;
+    }
+    
     main .recent-orders table{
         width: 84%;
     }
-    main table thead tr th:first-child,
-    main table thead tr th:nth-child(4){
+    main table.table1 thead tr th:nth-child(4){
         display: none;
     } 
-    main table tbody tr td:first-child,
-    main table tbody tr td:nth-child(4){
+    main table.table1 tbody tr td:nth-child(4){
         display: none;
     }
-
-    main table tbody td:last-child span{
-        margin: 0 1px;
-    }
+   
+    
     main .dataTables_paginate{
+        width: 42%;
         justify-content: center;
     }
     main .pages{
-        width: 100%;
+        width: 50%;
     }
     main .pages ul{
         margin-right: 150px;
         justify-content: end;
     }
     
-    
+
 }
+
 
 @media screen and (max-width: 860px){
     .containt-notes{
+        width: 100px;
+    }
+    .div-inputs-btn{
+        display: flex;
+        width: 100%;
+        padding-left: 30px;
+    }
+    .pop-up .div-btns{
+        display: flex;
+        width: 100%;
+        padding-left: 0;
+        justify-content: end;
+        transform: translateX(0px);
+    }
+    .inputs-btn button{
+        margin: 0;
+        margin-right: 25px;
         width: 100px;
     }
 }
 
 
 
-/* ================= MEDIA QUERIES AND RESPONSIVE SMALL TABLETS AND SMARTPHONES ============== */
 
-@media screen and (max-width: 810px){
+
+@media screen and (max-width: 778px){
     .container{
         width: 94%;
         grid-template-columns: 1fr;
@@ -1043,7 +1024,7 @@ select:active, select:focus {
         cursor: pointer;
     }
     main{
-        margin-top: 8rem;
+        margin-top: 4rem;
         padding: 0 1rem;
     }
     main .title{
@@ -1051,16 +1032,14 @@ select:active, select:focus {
     }
     main .filter{
         display: flex;
-        flex-direction: column-reverse;
-        justify-content: start;
-        align-items: flex-start;
+        flex-flow: row wrap;
+        margin-top: 20px;
     }
-    main .filter-s-a{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 25px;
+    main .filter-search{
+        margin: 0;
+        transform: translateY(70px);
     }
+
     main .filter-agg{
         position: relative;
         margin-top: 20px;
@@ -1074,7 +1053,11 @@ select:active, select:focus {
         margin-left: 10px;
     }
     main .all-table{
+        height: auto;
         padding: 0;
+    }
+    main .all-table:last-child{
+        margin-bottom: 10%;
     }
     main .recent-orders{
         position: relative;
@@ -1103,32 +1086,36 @@ select:active, select:focus {
         transition: 1s;
         z-index: 1;
     }
+    .card .title-register{
+        text-align: center;
+        font-size: 1.7rem;
+        height: 8%;
+        color: var(--color-dark);
+    }
+
+    .item{
+        width: 100%;
+        justify-content: start;
+    }
+    .item .subitem{
+        display: flex;
+        padding: 5px 0 0 25px;
+    }
+    .item .subitem span{
+        margin: 0 10px;
+        color: var(--color-dark);
+    }
 
     .div-inputs-btn{
         display: flex;
         width: 100%;
         justify-content: start;
-        padding-left: 30px;
-    }
-    .pop-up .div-btns{
-        display: flex;
-        width: 100%;
-        padding-left: 0;
-        justify-content: end;
-        transform: translateX(0px);
+        margin-top: 0;
     }
     .inputs-btn button{
         margin: 0;
         margin-right: 25px;
         width: 100px;
-    }
-
-}
-
-@media screen and (max-width: 700px){
-    #pop-up{
-        height: 70%;
-        width: 90%;
     }
     .div-inputs{
         display: flex;
@@ -1138,69 +1125,68 @@ select:active, select:focus {
         height: 40%;
     }
 
-    .div-inputs:first-child{
-        margin-top: 0;
+    .div-inputs:nth-child(2){
+        margin-top: 10px;
     }
     
     .div-inputs .inputs{
-        /* margin-top: 25px; */
+        margin-top: 0;
         width: 100%;
     }
-    
-    .div-inputs-btn{
-        height: 20%;
+
+}
+
+
+
+
+@media screen and (max-width: 636px){
+
+    main .dataTables_info{
+        width: 100%;
+        text-align: center;
     }
-    main .recent-orders{
-        position: relative;
-        margin: 1rem 0 5rem 0;
+    main .dataTables_paginate{
+        justify-content: center;
         width: 100%;
     }
-    main .pages{
-        position: absolute;
-        width: 100%;
+    main .filter{
+        flex-flow: row wrap-reverse;
     }
-    main .pages ul{
-        width: 100%;
-        justify-content: end;
+    main .filter-search{
+        margin: 10px 0;
+        transform: translateY(0);
+    }
+    main .filter-agg{
+        transform: translateY(45px);
+    }
+}
+
+@media screen and (max-width: 517px){
+
+    main table thead tr th:first-child{
+        display: none;
+    } 
+    main table tbody tr td:first-child{
+        display: none;
+    }
+    main .filter-agg{
+        transform: translateY(10px);
     }
 }
 
 
+
+
 @media screen and (max-width: 467px){
- .profile .info{
+    .top-mobile .theme-toggler-mobile{
+        margin-left: 60px;
+    }
+    .profile .info{
         display: none;
     }
     .text-muted{
         font-size: 1rem;
     }
-    main .all-table ul:nth-child(1){
-        display: flex;
-        width: 100%;
-    }
-    main .all-table ul:nth-child(1) li{
-        margin-left: 10px;
-    }
-    main .recent-orders{
-        margin-left: -5px;
-    }
-    main .pages ul li:nth-child(4),
-    main .pages ul li:nth-child(6){
-        display: none;
-    }
-
-
-    .div-inputs{
-        height: 30%;
-    }
-    
-    .div-inputs .inputs .input-modal{
-        font-size: 1rem;
-        height: 55px;
-    }
-    .div-inputs .inputs .label-modal{
-        font-size: 1rem;
-    }
-    
     .input-modal:focus + .label-modal,
     .input-modal:not(:placeholder-shown) + .label-modal{
         transform: translateY(-5px) scale(.7);
