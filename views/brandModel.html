@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../css/brandModel.css">
+    <title>Responsive Dashboard</title>
+</head>
+<body>
+    <div class="container" id="blur">
+        <!-------------------- CONTAINER LEFT - MENÚ LATERAL --------------------->
+
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="../images/logo.png" alt="logo">
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="./dashboard.html">
+                    <span class="material-symbols-sharp">window</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="./customers.html">
+                    <span class="material-symbols-sharp">person_outline </span>
+                    <h3>Customers</h3>
+                </a>
+                <a href="./inventary.html">
+                    <span class="material-symbols-sharp">shopping_cart</span>
+                    <h3>Inv & Pro</h3>
+                </a>
+                <a href="./technical.html">
+                    <span class="material-symbols-sharp">group</span>
+                    <h3>Technical</h3>
+                </a>
+                <a href="./brandModel.htmwl" class="active">
+                    <span class="material-symbols-sharp">task</span>
+                    <h3>Brand & Model</h3>
+                </a>
+
+                <a href="../login.html">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+
+
+        <main>
+            <div class="top-mobile">
+                <button id="menu-btn"><span class="material-symbols-sharp">menu</span>
+                </button>
+                <div class="theme-toggler-mobile">
+                    <span class="material-symbols-sharp active">light_mode</span>
+                    <span class="material-symbols-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>User</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="../images/profile-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="top">
+                <div class="title">
+                    <h1>Brand & Model</h1>
+                    <span class="text-muted">5 Brand and 8 Model add</span>
+                </div>
+                <div class="profile-theme">
+                    <div class="theme-toggler theme-toggler">
+                        <span class="material-symbols-sharp active">light_mode</span>
+                        <span class="material-symbols-sharp">dark_mode</span>
+                    </div>
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey, <b>User</b></p>
+                            <small class="text-muted">Admin</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="../images/profile-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="all-table">
+                <div class="filter">
+                    <ul>
+                        <li class="active">All estatus</li>
+                        <li>Activo</li>
+                        <li>Inactivo</li>
+                        <div id="mark-order"></div>
+                    </ul>
+                    <div class="filter-search">
+                        <input type="text" class="input_search" name="" id="search" placeholder=" ">
+                        <label for="search" class="label_search">Busqueda:</label>
+                        <!-- <a href=""><span class="material-symbols-sharp">close</span>
+                        </a> -->
+                    </div>
+                    <div class="filter-s-a">
+                        <div class="filter-agg btn-agg btn-close" id="button1" onclick="toggleModal()">
+                            <div id="dub-arrow">
+                                <span class="material-symbols-sharp">person_add</span>
+                            </div>
+                            <button class="btn-modal" id="btn-modal">New Model</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-orders">
+                    <table id="table_id" class="table table1">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Description Model</th>
+                                <th>Id Marca</th>
+                                <th>Estatus</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="all-table">
+                <div class="filter">
+                    <ul>
+                        <li class="active">All estatus</li>
+                        <li>Activo</li>
+                        <li>Inactivo</li>
+                        <div id="mark-order"></div>
+                    </ul>
+                    
+                    <div class="filter-s-a">
+                        <div class="filter-agg btn-agg btn-close" id="button2" onclick="toggleModal2()">
+                            <div id="dub-arrow2">
+                                <span class="material-symbols-sharp">person_add</span>
+                            </div>
+                            <button class="btn-modal" id="btn-modal">New Brand</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-orders">
+                    <table id="table_id" class="table table2">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Description Brand</th>
+                                <th>Estatus</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="pop-up" id="pop-up">
+        <nav>
+            <div id="progress-bar"></div>
+            <ul>
+            <!-- <div id=""></div> -->
+            <li class="register activeC" id="register">Model</li>
+            </ul>
+            <div class="btn-modal" id="btn-modal" onclick="toggleModal()"><span class="material-symbols-sharp btn-modal">close</span></div>
+        </nav>
+        <form class="form slide">
+            <div class="card active" id="card1">
+                <h1 class="title-register">Register new model</h1>
+                <div class="total-inputs">
+                    <div class="div-inputs">
+                        <div class="inputs inputs1">
+                            <input type="text" id="cedula" placeholder=" " class="input-modal">
+                            <label for="cedula" class="label-modal text-muted"> Description Model:</label>
+                        </div>
+                        <div class="inputs inputs2">
+                            <select name="" id="">
+                                <option value="0" disabled selected>Selecciona una marca</option>
+                                <option value="1">Huawei</option>
+                                <option value="2">Samsung</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="subitem">
+                            <span>Estatus: </span>
+                            <div class="toggle-pill-color">
+                                <input type="checkbox" id="pill3" name="check">
+                                <label for="pill3"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-inputs-btn">
+                    <div class="inputs-btn">
+                        <button type="button" onclick="toggleModal()">Save</button>
+                        <button class="btn-next" type="button" onclick="toggleModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="pop-up" id="pop-up2">
+        <nav>
+            <div id="progress-bar2"></div>
+            <ul>
+            <!-- <div id=""></div> -->
+            <li class="register activeC" id="register">Brand</li>
+            </ul>
+            <div class="btn-modal" id="btn-modal" onclick="toggleModal2()"><span class="material-symbols-sharp btn-modal">close</span></div>
+        </nav>
+        <form class="form slide">
+            <div class="card active" id="card1">
+                <h1 class="title-register">Register new brand</h1>
+                <div class="total-inputs">
+                    <div class="div-inputs">
+                        <div class="inputs inputs1">
+                            <input type="text" id="cedula" placeholder=" " class="input-modal">
+                            <label for="cedula" class="label-modal text-muted"> Description Model:</label>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="subitem">
+                            <span>Estatus: </span>
+                            <div class="toggle-pill-color">
+                                <input type="checkbox" id="pill3" name="check">
+                                <label for="pill3"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-inputs-btn">
+                    <div class="inputs-btn">
+                        <button type="button" onclick="toggleModal2()">Save</button>
+                        <button class="btn-next" type="button" onclick="toggleModal2()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+    <script src="../js/jQuery/jQuery.js"></script>
+    <script src="../js/jQuery/jquery.dataTables.js"></script>
+    <script src="../js/brandModel.js"></script>
+    <script src="../js/themeToggle.js"></script>
+</body>
+</html>

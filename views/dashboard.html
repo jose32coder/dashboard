@@ -33,15 +33,20 @@
                         <h3>Customers</h3>
                     </a>
                     <a href="./inventary.html">
-                        <span class="material-symbols-sharp">mail_outline</span>
-                        <h3>Inv and Pro</h3>
-                        <span class="message-count">26</span>
+                        <span class="material-symbols-sharp">shopping_cart</span>
+                        <h3>Inv & Pro</h3>
                     </a>
-                    <a href="#">
-                        <span class="material-symbols-sharp">receipt_long</span>
-                        <h3>Orders</h3>
+                    <a href="./technical.html">
+                        <span class="material-symbols-sharp">group</span>
+                        <h3>Technical</h3>
                     </a>
-                    <a href="#">
+                    <a href="./brandModel.html">
+                        <span class="material-symbols-sharp">task</span>
+                        <h3>Brand & Model</h3>
+                    </a>
+
+                    
+                    <a href="../login.html">
                         <span class="material-symbols-sharp">logout</span>
                         <h3>Logout</h3>
                     </a>
@@ -50,52 +55,36 @@
         <!---------------- CIERRA EL ASID --------------->
         <main>
             <h1>Dashboard</h1>
-            <div class="date">
+            <!-- <div class="date">
                 <input type="date" name="" id="">
-            </div>
+            </div> -->
             <div class="insights">
-                <div class="options">
-                    <div class="full-menu-income">
-                        <ul class="menu-income">
-                            <li><a href="" class="venta">Ventas totales</a></li>
-                            <li><a href="" class="pvp">Pvp total</a></li>
-                            <li><a href="" class="ganancia">Ganancias totales</a></li>
-                        </ul>
-                        <div class="container-modal">
-                            <a href="">Ver más...</a>
-                        </div>
-                        <div>
-                            <span class="material-symbols-sharp btn-modal-1">more_horiz</span>
-                            <span class="material-symbols-sharp btn-modal-2">more_horiz</span>
-                        </div>
+                <h2 class="title-insights">Ingresos</h2>
+                <div class="all-card">
+                    <div class="box red">
+                        <h2>250$</h2>
+                        <div class="info">PVP</div>
+                        <p>Precio de venta al público</p>
+                        <span class="text-muted">Últimas 24 Horas</span>
                     </div>
-                    <div class="middle-full middle-1">
-                        <div class="middle info1">
-                            <div class="left">
-                                <h3>Ventas Totales</h3>
-                                <h2>$0,00</h2>
-                            </div>
-                        </div>
+
+                    <div class="box red">
+                        <h2>150$</h2>
+                        <div class="info">Gasto</div>
+                        <p>Gasto total existente en la tienda</p>
+                        <span class="text-muted">Últimas 24 Horas</span>
                     </div>
-                    <div class="middle-full middle-2">
-                        <div class="middle info1">
-                            <div class="left">
-                                <h3>Pvp total</h3>
-                                <h2>$0,00</h2>
-                            </div>
-                        </div>
+                    <div class="box red">
+                        <h2>100$</h2>
+                        <div class="info">Ganancia</div>
+                        <p>Ganancia total de articulos y servicios</p>
+                        <span class="text-muted">Últimas 24 Horas</span>
                     </div>
-                    <div class="middle-full middle-3">
-                        <div class="middle info2">
-                            <div class="left">
-                                <h3>Ganancias Totales</h3>
-                                <h2>$0,00</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Últimos 7 días</small>
                 </div>
-                <!--------- TERMINA INGRESOS --------->
+                <span class="more-p">
+                    <a href="./inventary.html">Ver más...</a>
+                </span>
+                
             </div>
             <!--------- TERMINA CUADROS DE PORCENTAJE --------->
             <div class="recent-orders">
@@ -103,19 +92,20 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Product Number</th>
-                            <th>Status</th>
-                            <th>Date inicio</th>
-                            <th>Date cierre</th>
-                            <th></th>
+                            <th>Cédula</th>
+                            <th>Client Name</th>
+                            <th>Service</th>
+                            <th>Date user</th>
+                            <th>Price</th>
+                            <th>Estatus</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         
                     </tbody>
                 </table>
-                <a href="#">Show All</a>
+                <a href="./customers.html">Ver más...</a>
             </div>
         </main>
         <div class="right">
@@ -143,25 +133,25 @@
                 <div class="title-notes">
                     <h2>Notes</h2>
                     <div class="updates-actions">
-                        <span class="material-symbols-sharp" onclick="toggleModal()">add</span>
+                        <span class="material-symbols-sharp btn-open" onclick="toggleModal()">add</span>
                     </div>
                 </div>
                 <div class="updates">
                     <div class="message">
-                        <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
-                        <small class="text-muted">Hace 2 minutos</small>
+                        <h3>Titulo</h3>
+                        <p>Se recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
                     </div>
 
                     <div class="message">
-                        <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
-                        <small class="text-muted">Hace 2 minutos</small>
+                        <h3>Titulo</h3>
+                        <p>Se recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
                     </div>
                     <div class="message">
-                        <p><b>Mike Tyson</b> Recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
-                        <small class="text-muted">Hace 2 minutos</small>
+                        <h3>Titulo</h3>
+                        <p>Se recibió la orden que había pedido de manera exitosa el dia: dd/mm/yyyy</p>
                     </div>
                     <div class="more-message">
-                        <span class="text-muted" onclick="toggleModal()">Ver más...</span>
+                        <span class="text-muted btn-more" onclick="toggleModal()">Ver más...</span>
                     </div>
                 </div>
             </div>
@@ -218,43 +208,80 @@
     </div>
     <div class="pop-up" id="pop-up">
         <nav>
-            <div class="background"></div>
+            <div class="" id="progress-bar"></div>
             <span>Notas</span>
             <div class="btn-modal" id="btn-modal"><span class="material-symbols-sharp btn-modal" onclick="toggleModal()">close</span></div>
         </nav>
-        <form action="">
+        <form class="div-form" id="div-form" action="">
             <div class="div-inputs">
-                <div class="inputs">
-                    <input type="text" id="tituloN" placeholder=" " class="input-modal">
-                    <label for="tituloN" class="label-modal text-muted"> Titulo:</label>
+                <div class="inputs inputs1">
+                    <input type="text" id="tituloN" placeholder=" " class="input-modal" name="titulo">
+                    <label for="tituloN" class="label-modal label text-muted"> Titulo:</label>
+                    <span class="error-text" id="error1"></span>
                 </div>
-        
+                <div class="inputs inputs2">
+                    <input type="text" class="input-modal" name="" id="search" placeholder=" ">
+                    <label for="search" class="label_search label-modal">Busqueda:</label>
+                    <span class="material-symbols-sharp">search</span>
+                </div>
+            </div>
 <!-- AQUI VA EL RADIO -->
 
 
-                <div class="inputs textareas">
-                    <textarea type="text" id="textarea" placeholder=" " class="textarea input-modal "></textarea>
-                    <label for="textarea" class="label-modal text-muted"> Mensaje:</label>
-                    <div class="btn">
-                        <button>Agregar</button>
-                        <button type="reset">Reset</button>
+            <div class="div-inputs div-textareas">
+                <div class="inputs inputs3 textareas">
+                    <textarea type="text" id="textarea" placeholder=" " class="textarea input-modal" name="message"></textarea>
+                    <label for="textarea" class="label-modal label text-muted"> Mensaje:</label>
+                    <span class="error-text" id="error2"></span>
+                </div>
+                <div class="btn inputs-btn">
+                    <button type="submit" class="btn-s" id="btn-s">Agregar</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </div>
+        </form>
+        <div class="containt-notes" id="datos">
+            <div class="containt__text">
+                <h1>Titulo 1</h1>
+                <div class="containt__messages">
+                    <p class="span-message">Mensaje completo del usuario a guardar, o mas que mensaje, una nota completa del usuario.</p> <div> 
+                    <span class="material-symbols-sharp">delete</span><span class="material-symbols-sharp">settings</span>
+                </div>
+            </div>
+            </div>
+            <div class="containt__text">
+                <h1>Titulo 2</h1>
+                <div class="containt__messages">
+                    <p class="span-message">Mensaje completo del usuario a guardar, o mas que mensaje, una nota completa del usuario.</p> <div> 
+                    <span class="material-symbols-sharp">delete</span><span class="material-symbols-sharp">settings</span>
+                </div>
+            </div>
+            </div>
+            <div class="containt__text">
+                <h1>Titulo 3</h1>
+                <div class="containt__messages">
+                    <p class="span-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem nulla iure temporibus dolorem? Odio voluptas magnam ratione minus minima tempore itaque alias a laboriosam veniam vitae adipisci ab suscipit nulla eos, consequuntur accusantium quia animi ad. Cum suscipit dolore eaque labore veritatis aperiam qui nihil! Assumenda error harum exercitationem quibusdam dolorem molestias quidem modi! Molestias consequuntur laboriosam provident tempora a, illo voluptas, facilis inventore magni minus maxime vero? Modi rem excepturi beatae nihil. Quod tempora nesciunt magnam itaque aperiam? Impedit, quia labore. Aliquid, illum iusto! Tenetur cupiditate repudiandae, rerum aliquid hic delectus aliquam sed cum voluptas voluptatum ea, nesciunt commodi officia? Ducimus perspiciatis quod iusto cum voluptate, unde eaque cupiditate assumenda voluptatum. Illum, expedita velit. Officiis saepe harum pariatur quibusdam labore voluptatum quasi temporibus ab. Voluptates minima distinctio adipisci tempora nisi hic. Quo minus non tempore, natus nihil, quia, quos voluptatibus culpa et accusamus esse ea! Aut odit aliquam dolorum maiores facere sit in! Obcaecati consequuntur commodi vero delectus sunt animi, nobis nulla iure earum reprehenderit, in facere voluptatem aut quasi. Eum, maxime impedit repellat molestias a quaerat? At eius accusamus voluptas quis quisquam similique nihil recusandae distinctio accusantium cupiditate autem, soluta iusto labore reprehenderit quos doloribus. Neque quam cum adipisci asperiores cumque repellendus rem nemo possimus molestiae non similique dolore odio, ipsam ex, quo doloremque. Ab nemo quo nobis modi doloremque consectetur blanditiis id accusantium laudantium consequuntur architecto neque beatae, obcaecati aliquam atque ea porro accusamus fugiat quas optio libero commodi? Minima laborum blanditiis iusto, quod ad autem..</p> 
+                    <div> 
+                        <span class="material-symbols-sharp">delete</span><span class="material-symbols-sharp">settings</span>
                     </div>
                 </div>
             </div>
-            <div class="search-item">
-                <input type="text" class="input_search input-modal" name="" id="search" placeholder=" ">
-                <label for="search" class="label_search label-modal">Busqueda:</label>
-                <a href=""><span class="material-symbols-sharp">search</span>
-                </a>
+            <div class="containt__text">
+                <h1>Titulo 4</h1>
+                <div class="containt__messages"><p class="span-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem nulla iure temporibus dolorem? Odio voluptas magnam ratione minus minima tempore itaque alias a laboriosam veniam vitae adipisci ab suscipit nulla eos, consequuntur accusantium quia animi ad. Cum suscipit dolore eaque labore veritatis aperiam qui nihil! Assumenda error harum exercitationem quibusdam dolorem molestias quidem modi! Molestias consequuntur laboriosam provident tempora a, illo voluptas, facilis inventore magni minus maxime vero? Modi rem excepturi beatae nihil. Quod tempora nesciunt magnam itaque aperiam? Impedit, quia labore. Aliquid, illum iusto! Tenetur cupiditate repudiandae, rerum aliquid hic delectus aliquam sed cum voluptas voluptatum ea, nesciunt commodi officia? Ducimus perspiciatis quod iusto cum voluptate, unde eaque cupiditate assumenda voluptatum. Illum, expedita velit. Officiis saepe harum pariatur quibusdam labore voluptatum quasi temporibus ab. Voluptates minima distinctio adipisci tempora nisi hic. Quo minus non tempore, natus nihil, quia, quos voluptatibus culpa et accusamus esse ea! Aut odit aliquam dolorum maiores facere sit in! Obcaecati consequuntur commodi vero delectus sunt animi, nobis nulla iure earum reprehenderit, in facere voluptatem aut quasi. Eum, maxime impedit repellat molestias a quaerat? At eius accusamus voluptas quis quisquam similique nihil recusandae distinctio accusantium cupiditate autem, soluta iusto labore reprehenderit quos doloribus. Neque quam cum adipisci asperiores cumque repellendus rem nemo possimus molestiae non similique dolore odio, ipsam ex, quo doloremque. Ab nemo quo nobis modi doloremque consectetur blanditiis id accusantium laudantium consequuntur architecto neque beatae, obcaecati aliquam atque ea porro accusamus fugiat quas optio libero commodi? Minima laborum blanditiis iusto, quod ad autem..</p> 
+                <div> 
+                    <span class="material-symbols-sharp">delete</span><span class="material-symbols-sharp">settings</span>
+                </div>
             </div>
-        </form>
-        <div class="containt-notes">
-            <div class="text-notes">
-                Mensaje completo del usuario a guardar, o mas que mensaje, una nota completa del usuario.
+                
             </div>
         </div>
     </div>
+    <script src="../js/gsap/gsap.js"></script>
+    <script src="../js/jQuery/jQuery.js"></script>
+    <script src="../js/jQuery/jQuery-validation.js"></script>
     <script src="../js/arrayej.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="../js/themeToggle.js"></script>
 </body>
 </html>
