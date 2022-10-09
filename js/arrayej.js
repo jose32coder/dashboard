@@ -1,53 +1,51 @@
 const Orders = [   
+
 {
-    productName: 'Mica Samsung S10',
-    productNumber: '81510',
-    paymentStatus: 'Due', 
-    shipping: 'Pending', 
-    dateIni: '10/10/2020',
-    dateFin: '10/11/2020'
+    cedula: '10223566',
+    clientName: 'Alí Camacaro',
+    problem: 'Un problema',
+    date: '10/10/2020',
+    price: '25$',
+    shipping: 'Delivered'
 },
 {
-    productName: 'Botones encendido y volumen',
-    productNumber: '85135',
-    paymentStatus: 'Refunded', 
-    shipping: 'Declined',
-    dateIni: '10/10/2020',
-    dateFin: '10/11/2020'
+    cedula: '15867076',
+    clientName: 'Yngrid López',
+    problem: 'Un problema',
+    date: '10/10/2020',
+    price: '25$',
+    shipping: 'Delivered'
 },
 {
-    productName: 'Pantalla iPhone X',
-    productNumber: '10101',
+    cedula: '13075966',
+    clientName: 'Cristihan Josue Cornieles',
+    problem: 'Un problema',
+    date: '10/10/2020',
+    price: '25$',
+    shipping: 'Pending'
+},
+{
+    cedula: '12345687',
+    clientName: 'Pepito Clavo un Clavito',
+    problem: 'Un problema',
+    date: '10/10/2020',
+    price: '25$',
+    shipping: 'Declined'
+},
+{
+    cedula: '27672468',
+    clientName: 'José Manuel López',
+    problem: 'Un problema',
+    date: '10/10/2020',
+    price: '25$',
     shipping: 'Pending',
-    dateIni: '10/10/2020',
-    dateFin: '10/11/2020'
 },
 {
-    productName: 'Pin de carga Huawei P30',
-    productNumber: '68898',
-    shipping: 'Delivered',
-    dateIni: '10/10/2020',
-    dateFin: '10/11/2020'
-},
-{
-    productName: 'Procesador Snapdragon 980S',
-    productNumber: '23145',
-    shipping: 'Delivered',
-    dateIni: '10/10/2020',
-    dateFin: '10/11/2020'
-},
-{
-    productName: 'Chip de conexion de señal',
-    productNumber: '22354',
-    shipping: 'Pending',
-    dateIni: '10/10/2020',
-    dateFin: '10/11/2020'
-},
-{
-    productName: 'GPS iPhone 13 Pro Max',
-    productNumber: '89645',
-    shipping: 'Declined',
-    dateIni: '10/10/2020',
-    dateFin: '10/11/2020'
+    cedula: '16751897',
+    clientName: 'Jesús Alberto Mejias',
+    problem: 'Un problema',
+    date: '10/10/2020',
+    price: '25$',
+    shipping: 'Declined'
 }
 ]

@@ -1,17 +1,15 @@
 const sideMenu = document.querySelector('aside');
 const menuBtn = document.querySelector('#menu-btn');
 const closeBtn = document.querySelector('#close-btn');
-const togglerStyle = document.querySelector('.toggler-style');
-const themeToggler = document.querySelector('.theme-toggler');
-
-
+const blurBody = document.querySelector('#blur');
+const popUs = document.querySelector('.pop-up');
+const inputSearch = document.querySelector('#search');
+const celdas = document.getElementsByTagName('tr');
 
 
 // LLamar funciones
 
 mostrarMenu();
-cambiarTema();
-cambiarEstilo();
 
 
 
@@ -21,8 +19,8 @@ cambiarEstilo();
 function toggleModal(){
     const blurBody = document.querySelector('#blur');
     blurBody.classList.toggle('active')
-    // const popUs = document.querySelector('.pop-up');
-    // popUs.classList.toggle('active')
+    const popUs = document.querySelector('.pop-up');
+    popUs.classList.toggle('active');
 };
   
 
@@ -40,26 +38,27 @@ function mostrarMenu(){
 
 // Cambiar modo nocturno en pantallas grandes
 
-function cambiarTema(){
-    themeToggler.addEventListener('click', () =>{
-        document.body.classList.toggle('dark-theme-variables');
-        const dark = document.querySelector('.sidebar');
-        dark.classList.add('option2');
 
-        themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
-        themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
-    });
-};
 
-function cambiarEstilo(){
-    togglerStyle.addEventListener('click', () =>{
 
-        togglerStyle.querySelector('span:nth-child(1)').classList.toggle('active');
-        togglerStyle.querySelector('span:nth-child(2)').classList.toggle('active');
+inputSearch.addEventListener('keyup', e =>{
+    let text = e.target.value;
+    console.log(text);
+    let er = new RegExp(text, "i");
 
-    });
-};
-
+    for(let i = 0; i < celdas.length; i++){
+        let valor = celdas[i]
+        console.log(valor)
+        if(er.test(valor.innerText)){
+            valor.classList.remove('ocultar');
+        }
+        else{
+            
+            console.log(valor[0]);
+            valor.classList.add('ocultar')
+        }
+    };
+});
 
 
 const Orders = [   
@@ -285,7 +284,7 @@ const Orders = [
                         <td>${order.price}</td>
                         <td>${order.cost}</td>
                         <td>${order.stock}</td>
-                        <td class=''><span class="material-symbols-sharp cursor-pointer">settings</span> <span class="material-symbols-sharp cursor-pointer">expand_less</span></td>
+                        <td class=''><span class="material-symbols-sharp cursor-pointer" onclick="toggleModal()">settings</span></td>
                         `
         tr.innerHTML = trContent;
         document.querySelector('table tbody').appendChild(tr)

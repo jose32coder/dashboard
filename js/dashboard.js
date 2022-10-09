@@ -1,22 +1,22 @@
 const sideMenu = document.querySelector('aside');
 const menuBtn = document.querySelector('#menu-btn');
 const closeBtn = document.querySelector('#close-btn');
-const themeToggler = document.querySelector('.theme-toggler');
-const middle1 = document.querySelector('.middle-1');
-const middle2 = document.querySelector('.middle-2');
-const middle3 = document.querySelector('.middle-3');
-const btn1 = document.querySelector('.venta');
-const btn2 = document.querySelector('.pvp');
-const btn3 = document.querySelector('.ganancia');
 const btnM1 = document.querySelector('.btn-modal-1');
 const btnM2 = document.querySelector('.btn-modal-2');
 const modal = document.querySelector('.container-modal');
 const disabledBtn = document.querySelector('.disabled');
 const blurBody = document.querySelector('#blur');
 const popUs = document.querySelector('.pop-up');
+const inputSearch = document.querySelector('#search');
+const celdas = document.querySelectorAll('.containt__text');
+let progressBar = document.querySelector("#progress-bar");
+const btnClose = document.querySelector('span.btn-modal');
+const btnOpen = document.querySelector('.btn-open');
+const btnMore = document.querySelector('.btn-more');
 
-middle2.style.display='none';
-middle3.style.display='none';
+
+var widthBar = 0;
+
 
 // Mostrar barra lateral
 menuBtn.addEventListener('click', () => {
@@ -28,16 +28,154 @@ closeBtn.addEventListener('click', () => {
     sideMenu.style.display = 'none';
 })
 
-// Cambiar color de página
-themeToggler.addEventListener('click', () =>{
-    document.body.classList.toggle('dark-theme-variables');
-    const dark = document.querySelector('.sidebar');
-    dark.classList.toggle('option2');
 
-    themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
-    themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+// Validando campos de notas con jQuery
+
+$(function(){
+    $('#div-form').validate({
+        errorPlacement: function(error, element) {
+            error.appendTo(element.parent(element))
+            return false
+        },
+        rules:{
+            titulo: {
+                required: true
+            },
+            message: {
+                required: true
+            }
+        },
+        messages:{
+            titulo: {
+                required: 'Campo vacio'
+            },
+            message: {
+                required: 'Campo vacío'
+            }
+        }
+    })
+})
+
+
+
+
+
+inputSearch.addEventListener('keyup', e =>{
+    let text = e.target.value;
+    console.log(text);
+    let er = new RegExp(text, "i");
+
+    for(let i = 0; i<celdas.length; i++){
+        let valor = celdas[i]
+        console.log(valor)
+        if(er.test(valor.innerText)){
+            valor.classList.remove('ocultar');
+        }
+        else{
+            console.log(valor);
+            valor.classList.add('ocultar')
+        }
+    };
 });
 
+btnClose.addEventListener('click', e => {
+    progressBar.style.width = 0 + "%";
+    gsapRegisterOff();
+})
+btnOpen.addEventListener('click', e => {
+    progressBar.style.width = 100 + "%"
+    gsapRegister();
+})
+btnMore.addEventListener('click', e => {
+    progressBar.style.width = 100 + "%"
+    gsapRegister();
+})
+
+function gsapRegister() {
+    let animatedRegister = gsap.timeline({
+        repeat: 0
+    });
+    animatedRegister.to('.inputs1', { 
+        delay: 0,
+        transition: .5,
+        opacity: 1,
+        y: -10,
+        ease: 'ease.InOut',
+    }, '');
+    animatedRegister.to('.inputs2', { 
+        delay: 0,
+        transition: .5,
+        opacity: 1,
+        y: -10,
+        ease: 'ease.InOut',
+    }, '-=.3');
+    animatedRegister.to('.inputs3', { 
+        delay: 0,
+        transition: .5,
+        opacity: 1,
+        y: -10,
+        ease: 'ease.InOut',
+    }, '-=.4');
+    animatedRegister.to('.inputs-btn', { 
+        delay: 0,
+        y: 0,
+        duration: .5,
+        ease: 'ease.InOut',
+        transition: 1,
+        opacity: 1,
+        visibility: 'visible'
+    }, '');
+    animatedRegister.to('.containt-notes', {
+        delay: 0,
+        y: 0,
+        duration: .5,
+        ease: 'ease.InOut',
+        transition: 1,
+        opacity: 1,
+        visibility: 'visible'
+    }, '')
+}
+
+function gsapRegisterOff() {
+    let animatedRegister = gsap.timeline({
+        repeat: 0
+    });
+    animatedRegister.to('.inputs1', { 
+        delay: 0,
+        transition: 1.5,
+        opacity: 0,
+        y: -20,
+        ease: 'ease.InOut',
+    }, '-=1');
+    animatedRegister.to('.inputs2', { 
+        delay: 0,
+        transition: 1.5,
+        opacity: 0,
+        y: -20,
+        ease: 'ease.InOut',
+    }, '-=2');
+    animatedRegister.to('.inputs3', { 
+        delay: 0,
+        transition: 1.5,
+        opacity: 0,
+        y: -20,
+        ease: 'ease.InOut',
+    }, '-=1.5');
+    animatedRegister.to('.inputs-btn', { 
+        delay: 0,
+        transition: 1.5,
+        y: -20,
+        opacity: 0,
+        ease: 'ease.InOut',
+    }, '-=3');
+    animatedRegister.to('.containt-notes', {
+        delay: 0,
+        transition: 1.5,
+        y: -20,
+        opacity: 0,
+        ease: 'ease.InOut',
+    }, '')
+}
 
 
 
@@ -50,50 +188,19 @@ function toggleModal(){
 
 // Desactivar la totalidad de ventas, costos y ganancias
 
-middle2.style.display='none';
-middle3.style.display='none';
-btn1.addEventListener('click', e =>{
-    middle1.style.display = 'block';
-    middle2.style.display = 'none';
-    middle3.style.display = 'none';
-    e.preventDefault();
-});
-btn2.addEventListener('click', e =>{
-    middle1.style.display = 'none';
-    middle2.style.display = 'block'
-    middle3.style.display = 'none';
-    e.preventDefault();
-});
-btn3.addEventListener('click', e =>{
-    middle1.style.display = 'none';
-    middle2.style.display = 'none'
-    middle3.style.display = 'block';
-    e.preventDefault();
-});
-
-
-btnM1.addEventListener('click', e =>{
-    modal.style.display = 'flex';
-    btnM1.style.display = 'none'
-    btnM2.style.display = 'flex';
-})
-btnM2.addEventListener('click', e =>{
-    modal.style.display = 'none';
-    btnM1.style.display = 'flex'
-    btnM2.style.display = 'none';
-})
 
 
 
 Orders.forEach(order =>{
     const tr = document.createElement('tr');
     const trContent = `
-                    <td>${order.productName}</td>
-                    <td>${order.productNumber}</td>
-                    <td class='${order.shipping === 'Declined' ? 'danger' : order.shipping === 'Pending' ? 'warning' : 'primary'}'>${order.shipping}</td>
-                    <td>${order.dateIni}</td>
-                    <td>${order.dateFin}</td>
-                    <td class='primary'>Details</td>
+                    <td>${order.cedula}</td>
+                    <td>${order.clientName}</td>
+                    <td>${order.problem}</td>
+                    <td>${order.date}</td>
+                    <td>${order.price}</td>
+                    <td class='${order.shipping === 'Declined' ? 'danger' : order.shipping === 'Pending' ? 'warning' : order.shipping === 'Delivered' ? 'success': 'primary'}'>${order.shipping}</td>
+                    <td class='primary'><a href="./customers.html">Details</a></td>
                     `
     tr.innerHTML = trContent;
     document.querySelector('table tbody').appendChild(tr)

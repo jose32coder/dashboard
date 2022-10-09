@@ -2,14 +2,12 @@ const sideMenu = document.querySelector('aside');
 const menuBtn = document.querySelector('#menu-btn');
 const closeBtn = document.querySelector('#close-btn');
 const themeTogglerMobile = document.querySelector('.theme-toggler-mobile');
-const themeToggler = document.querySelector('.theme-toggler');
 const blurBody = document.querySelector('#blur');
 const popUs = document.querySelector('.pop-up');
-const markOrder = document.querySelector('#mark-order')
+const markOrder = document.querySelector('#mark-order');
 const orderSelect = document.querySelectorAll('.filter ul li');
 const selectDiv = document.querySelectorAll('#pop-up ul li');
 let progressBar = document.querySelector("#progress-bar");
-
 const btnPopUp = document.querySelector('.filter-agg');
 const closeBtnPopUp = document.querySelector('.btn-modal');
 const card = document.querySelectorAll('.card');
@@ -17,6 +15,8 @@ const btnNext = document.querySelector('.btn-next');
 const btnBack = document.querySelector('.btn-back');
 const registerDiv =  document.querySelector('#card1')
 const serviceDiv =  document.querySelector('#card2');
+const inputSearch = document.querySelector('#search');
+const celdas = document.getElementsByTagName('tr');
 
 
 
@@ -29,9 +29,8 @@ var widthBar = 0;
 // LLamar funciones necesarias
 
 mostrarMenu()
-cambiarTema()
-
-
+cambiarTemaMobile();
+moveOrder();
 
 // Funcion para animar el apartado del pop-up
 
@@ -44,6 +43,7 @@ function toggleModal(){
     popUs.classList.toggle('active')
     gsapRegisterOff();
     gsapServicesOff();
+    ocultarDivTwo();
     progressBar.style.width = 0 + "%"
 };
   
@@ -60,38 +60,58 @@ function mostrarMenu(){
     })
 }
 
-// Cambiar modo nocturno en pantallas grandes
+// Cambiar modo nocturno en celulares
 
-function cambiarTema(){
-    themeToggler.addEventListener('click', () =>{
-        document.body.classList.toggle('dark-theme-variables');
-        const dark = document.querySelector('.sidebar');
-        dark.classList.add('option2');
-
-        themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
-        themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
-    });
-
-    // Cambiar modo nocturno en responsive
-
+function cambiarTemaMobile(){
     themeTogglerMobile.addEventListener('click', () =>{
         document.body.classList.toggle('dark-theme-variables');
         const dark = document.querySelector('.sidebar');
         dark.classList.add('option2');
-
+    
         themeTogglerMobile.querySelector('span:nth-child(1)').classList.toggle('active');
         themeTogglerMobile.querySelector('span:nth-child(2)').classList.toggle('active');
+    
+        if (document.body.classList.contains('dark-theme-variables')) {
+            localStorage.setItem('dark-mode', 'true');
+        }
+        else{
+            localStorage.setItem('dark-mode', 'false');
+        }
     });
+    
+    
+    if (localStorage.getItem("dark-mode") === null){
+        localStorage.setItem("dark-mode", "false"); 
+    }
+    let localData = localStorage.getItem("dark-mode"); 
+    if (localData === "false"){
+        
+        document.body.classList.remove('dark-theme-variables');
+        themeTogglerMobile.querySelector('span:nth-child(1)').classList.add('active');
+        themeTogglerMobile.querySelector('span:nth-child(2)').classList.remove('active'); 
+    }
+    else if (localData === "true"){
+    
+        document.body.classList.add('dark-theme-variables');
+        themeTogglerMobile.querySelector('span:nth-child(1)').classList.remove('active');
+        themeTogglerMobile.querySelector('span:nth-child(2)').classList.add('active');
+    }
 }
 
 
 
 
 function moveOrder(event){
-    markOrder.style.left = event.offsetLeft + "px";
-    markOrder.style.width = event.offsetWidth + "px";
-
+    if (markOrder.style.left == 0 || markOrder.style.width == 0) {
+        markOrder.style.left = 10 + "px";
+        markOrder.style.width = 320 + "px";
+    }
+    else{
+        markOrder.style.left = event.offsetLeft + "px";
+        markOrder.style.width = event.offsetWidth + "px";
+    }
 }
+
 orderSelect.forEach(select =>{
     select.addEventListener('click', e =>{
         e.preventDefault();
@@ -101,8 +121,43 @@ orderSelect.forEach(select =>{
 })
 
 
+// EVENTO PARA EL INPUT BUSQUEDA
+
+inputSearch.addEventListener('keyup', e =>{
+    let text = e.target.value;
+    console.log(text);
+    let er = new RegExp(text, "i");
+
+    for(let i = 0; i < celdas.length; i++){
+        let valor = celdas[i]
+        console.log(valor)
+        if(er.test(valor.innerText)){
+            valor.classList.remove('ocultar');
+        }
+        else{
+            
+            console.log(valor[0]);
+            valor.classList.add('ocultar')
+        }
+    };
+});
 
 
+
+$(document).ready( function () {
+    $('#table_id').DataTable(
+        {
+            language:{
+                url: `../js/jQuery/DataTables.config.json`
+              }
+        }
+    );
+} );
+
+
+
+
+// ANIMACION DE NEW USER
 
 selectDiv.forEach(select =>{
     const id = setInterval(
@@ -266,7 +321,7 @@ function gsapServices() {
     animatedServices.to('.title-services', {
         delay: 0,
         transition: 1.5,
-        x: 0,
+        y: 10,
         opacity: 1,
         ease: 'ease.InOut',
     });
@@ -292,7 +347,7 @@ function gsapServicesOff() {
     animatedServices.to('.title-services', {
         delay: 0,
         transition: 1.5,
-        x: 50,
+        y: 0,
         opacity: 0,
         ease: 'ease.InOut',
     });
@@ -410,20 +465,66 @@ const Orders = [
         price: '25$',
         shipping: 'Declined',
         dateFin: '10/11/2020'
+    },
+    {
+        cedula: '27672468',
+        clientName: 'José Manuel López',
+        problem: 'Un problema',
+        date: '10/10/2020',
+        price: '25$',
+        shipping: 'Pending', 
+        dateFin: '10/11/2020'
+    },
+    {
+        cedula: '16751897',
+        clientName: 'Jesús Alberto Mejias',
+        problem: 'Un problema',
+        date: '10/10/2020',
+        price: '25$',
+        shipping: 'Declined',
+        dateFin: '10/11/2020'
+    },
+    {
+        cedula: '2659954',
+        clientName: 'Jesús Mura',
+        problem: 'Un problema',
+        date: '10/10/2020',
+        price: '25$',
+        shipping: 'Pending',
+        dateFin: '10/11/2020'
+    },
+    {
+        cedula: '10223566',
+        clientName: 'Alí Camacaro',
+        problem: 'Un problema',
+        date: '10/10/2020',
+        price: '25$',
+        shipping: 'Delivered',
+        dateFin: '10/11/2020'
+    },
+    {
+        cedula: '15867076',
+        clientName: 'Yngrid López',
+        problem: 'Un problema',
+        date: '10/10/2020',
+        price: '25$',
+        shipping: 'Delivered',
+        dateFin: '10/11/2020'
     }
     ]
 
     Orders.forEach(order =>{
         const tr = document.createElement('tr');
         const trContent = `
-                        <td>${order.cedula}</td>
-                        <td>${order.clientName}</td>
+                        <td class="containt__text">${order.cedula}</td>
+                        <td class="containt__text">${order.clientName}</td>
                         <td>${order.problem}</td>
                         <td>${order.date}</td>
                         <td>${order.price}</td>
                         <td class='${order.shipping === 'Declined' ? 'danger' : order.shipping === 'Pending' ? 'warning' : order.shipping === 'Delivered' ? 'success': 'primary'}'>${order.shipping}</td>
-                        <td class=''><span class="material-symbols-sharp cursor-pointer">settings</span> <span class="material-symbols-sharp cursor-pointer">expand_less</span></td>
+                        <td class=''><span class="material-symbols-sharp cursor-pointer">settings</span> <span class="material-symbols-sharp cursor-pointer">delete</span></td>
                         `
         tr.innerHTML = trContent;
+        tr.classList.add('containt-notes')
         document.querySelector('table tbody').appendChild(tr)
     })
