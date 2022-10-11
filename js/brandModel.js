@@ -1,15 +1,12 @@
 const sideMenu = document.querySelector('aside');
 const menuBtn = document.querySelector('#menu-btn');
 const closeBtn = document.querySelector('#close-btn');
-const markOrder = document.querySelector('#mark-order');
-const orderSelect = document.querySelectorAll('.filter ul li');
 const btnPopUp = document.querySelector('#button1');
 const btnPopUp2 = document.querySelector('#button2');
 const themeTogglerMobile = document.querySelector('.theme-toggler-mobile');
 const inputSearch = document.querySelector('#search');
 let progressBar = document.querySelector("#progress-bar");
 let progressBar2 = document.querySelector("#progress-bar2");
-const selectDiv = document.querySelector('#pop-up ul li');
 const celdas = document.getElementsByTagName('tr');
 const blurBody = document.querySelector('#blur');
 const popUp = document.querySelector('.pop-up');
@@ -19,7 +16,6 @@ const popUp2 = document.querySelector('#pop-up2');
 
 
 mostrarMenu();
-moveOrder()
 
 
 
@@ -53,24 +49,7 @@ function mostrarMenu(){
     })
 }
 
-function moveOrder(event){
-    if (markOrder.style.left == 0 || markOrder.style.width == 0) {
-        markOrder.style.left = 10 + "px";
-        markOrder.style.width = 230 + "px";
-    }
-    else{
-        markOrder.style.left = event.offsetLeft + "px";
-        markOrder.style.width = event.offsetWidth + "px";
-    }
-}
 
-orderSelect.forEach(select =>{
-    select.addEventListener('click', e =>{
-        e.preventDefault();
-        moveOrder(e.target);
-        console.log(e.target);
-    })
-})
 
 
 // Evento para el input de busqueda
@@ -120,10 +99,14 @@ $(document).ready( function () {
             language:{
                 url: `../js/jQuery/DataTables.config.json`
               },
-              "pageLength": 5
+              "pageLength": 5,
+              responsive: true
         }
     );
 } );
+
+
+
 
 
 function cambiarTemaMobile(){

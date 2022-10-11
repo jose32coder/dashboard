@@ -104,7 +104,7 @@ function cambiarTemaMobile(){
 function moveOrder(event){
     if (markOrder.style.left == 0 || markOrder.style.width == 0) {
         markOrder.style.left = 10 + "px";
-        markOrder.style.width = 320 + "px";
+        markOrder.style.width = 310 + "px";
     }
     else{
         markOrder.style.left = event.offsetLeft + "px";
@@ -149,7 +149,8 @@ $(document).ready( function () {
         {
             language:{
                 url: `../js/jQuery/DataTables.config.json`
-              }
+              },
+              responsive: true
         }
     );
 } );
@@ -335,7 +336,7 @@ function gsapServices() {
     animatedServices.to('.inputs-btn2', {
         delay: 0,
         transition: 1,
-        y: -50,
+        y: 0,
         opacity: 1,
         ease: 'ease.InOut',
     }, '-=1.5');
@@ -361,7 +362,7 @@ function gsapServicesOff() {
     animatedServices.to('.inputs-btn2', {
         delay: 0,
         transition: 1.5,
-        y: 0,
+        y: -50,
         opacity: 0,
         ease: 'ease.InOut',
     }, '-=1.5');
