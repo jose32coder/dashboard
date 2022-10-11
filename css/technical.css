@@ -511,9 +511,6 @@ main .dataTables_wrapper{
     display: flex;
     flex-wrap: wrap;
 }
-.dataTables_info{
-    width: 50%;
-}
 .dataTables_filter, 
 .dataTables_length{
     display: none;
@@ -866,20 +863,21 @@ main .recent-orders a{
         top: 0;
         left: -25px;
     }
+    main table tbody tr td:last-child{
+        width: 20%;
+    }
     main .recent-orders{
-        width: 95%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 2rem 0 0 8.5rem;
+        width: 100%;
+        left: 0;
+        margin: 2rem 0 0 0;
+    }
+    main .recent-orders table{
+        width: 100% !important;
     }
     main .dataTables_wrapper{
-        width: auto;
+        width: 100%;
     }
-    
-    main .recent-orders table{
-        width: 84%;
-    }
+
     main table thead tr th:nth-child(4){
         display: none;
     } 
@@ -889,17 +887,9 @@ main .recent-orders a{
    
     
     main .dataTables_paginate{
-        width: 42%;
-        justify-content: center;
-    }
-    main .pages{
         width: 50%;
-    }
-    main .pages ul{
-        margin-right: 150px;
         justify-content: end;
     }
-    
 
 }
 
@@ -974,6 +964,7 @@ main .recent-orders a{
     aside .sidebar a:last-child{
         position: absolute;
         bottom: 5rem;
+        transform: translateY(0);
     }
     aside .close{
         display: inline-block;
@@ -985,6 +976,11 @@ main .recent-orders a{
     }
     main .title{
         padding-left: 8px;
+    }
+    main .all-table{
+        width: 100%;
+        height: auto;
+        padding-top: 20px;
     }
     main .filter{
         display: flex;
@@ -1016,7 +1012,6 @@ main .recent-orders a{
     main .recent-orders{
         position: relative;
         margin: 1rem 0 3rem 0;
-        width: 100%;
     }
     main .recent-orders table{
         width: 100%;
@@ -1031,14 +1026,8 @@ main .recent-orders a{
     .top .profile-theme{
         display: none;
     }
-    #pop-up.active{
+    #pop-up{
         height: 600px;
-        display: block;
-        top: 50%;
-        visibility: visible;
-        opacity: 10;
-        transition: 1s;
-        z-index: 1;
     }
     .card .title-register{
         text-align: center;
@@ -1078,6 +1067,10 @@ main .recent-orders a{
         margin-top: 0;
         height: 40%;
     }
+    main .dataTables_paginate{
+        width: 50%;
+        justify-content: end;
+    }
 
     .div-inputs:nth-child(2){
         margin-top: 10px;
@@ -1109,6 +1102,9 @@ main .recent-orders a{
     main table tbody tr td:nth-child(3){
         display: none;
     }
+    main table tbody tr td:last-child{
+        width: 35%;
+    }
 
     main .dataTables_info{
         width: 100%;
@@ -1117,6 +1113,10 @@ main .recent-orders a{
     main .dataTables_paginate{
         justify-content: center;
         width: 100%;
+    }
+
+    #pop-up{
+        width: 90%;
     }
 
 }
@@ -1129,6 +1129,7 @@ main .recent-orders a{
     .text-muted{
         font-size: 1rem;
     }
+    
     .input-modal:focus + .label-modal,
     .input-modal:not(:placeholder-shown) + .label-modal{
         transform: translateY(-5px) scale(.7);
@@ -1137,5 +1138,19 @@ main .recent-orders a{
     }
     .div-inputs-btn{
         height: 20%;
+    }
+    
+}
+
+
+@media screen and (max-height:915px) {
+    aside .sidebar a{
+        transform: translateY(-120px);
+    }
+}
+
+@media screen and (max-height:670px) {
+    aside .sidebar a{
+        transform: translateY(-170px);
     }
 }

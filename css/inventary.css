@@ -1158,3 +1158,20 @@ main{
         width: 25%;
     }
 }
+
+
+
+
+
+
+@media screen and (max-height:915px) {
+    aside .sidebar a{
+        transform: translateY(-120px);
+    }
+}
+
+@media screen and (max-height:670px) {
+    aside .sidebar a{
+        transform: translateY(-170px);
+    }
+}

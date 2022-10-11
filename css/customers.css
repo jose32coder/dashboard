@@ -501,12 +501,8 @@ main .recent-orders h2{
 }
 main .dataTables_wrapper{
     width: 100%;
-    height: auto;
     display: flex;
     flex-wrap: wrap;
-}
-.dataTables_info{
-    width: 50%;
 }
 .dataTables_filter, 
 .dataTables_length{
@@ -785,6 +781,9 @@ main .recent-orders a{
     transform: translateY(-50px);
     opacity: 0;
 }
+.div-inputs-btn .inputs-btn2{
+    margin: 0;
+}
 .inputs-btn2{
     display: none;
     opacity: 0;
@@ -943,18 +942,9 @@ select:active, select:focus {
         position: relative;
         margin-top: 20px;
         top: 0;
-        left: -25px;
+        left: -10px;
     }
-    main .recent-orders{
-        width: 95%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 2rem 0 0 8.5rem;
-    }
-    main .recent-orders table{
-        width: 84%;
-    }
+    
     main table thead tr th:first-child,
     main table thead tr th:nth-child(4){
         display: none;
@@ -963,12 +953,20 @@ select:active, select:focus {
     main table tbody tr td:nth-child(4){
         display: none;
     }
-
-    main table tbody td:last-child span{
-        margin: 0 1px;
+    main table tbody tr td:last-child{
+        width: 20%;
+    }
+    main .recent-orders{
+        width: 100%;
+        left: 0;
+        margin: 2rem 0 0 0;
+    }
+    main .recent-orders table{
+        width: 100% !important;
     }
     main .dataTables_paginate{
-        justify-content: center;
+        width: 50%;
+        justify-content: end;
     }
     main .pages{
         width: 100%;
@@ -991,7 +989,7 @@ select:active, select:focus {
 
 /* ================= MEDIA QUERIES AND RESPONSIVE SMALL TABLETS AND SMARTPHONES ============== */
 
-@media screen and (max-width: 810px){
+@media screen and (max-width: 816px){
     .container{
         width: 94%;
         grid-template-columns: 1fr;
@@ -1034,9 +1032,13 @@ select:active, select:focus {
         width: 95%;
         height: 3.4rem;
     }
+    aside .sidebar a{
+        transform: translateY(-50px);
+    }
     aside .sidebar a:last-child{
         position: absolute;
         bottom: 5rem;
+        transform: translateY(0);
     }
     aside .close{
         display: inline-block;
@@ -1103,12 +1105,44 @@ select:active, select:focus {
         transition: 1s;
         z-index: 1;
     }
+    .div-textareas .inputs{
+        width: 100%;
+    }
+    .div-inputs{
+        display: flex;
+        width: 100%;
+        flex-flow: row wrap;
+        padding-right: 0;
+        margin-top: 0;
+        height: 40%;
+    }
+    .div-inputs .inputs{
+        width: 100%;
+    }
+    
+    .div-inputs:first-child{
+        margin-top: 0;
+    }
+    .div-inputs2{
+        height: 60%;
+        padding: 0;
+    }
+    .div-inputs2 .inputs{
+        /* margin-top: 25px; */
+        width: 50%;
+    }
+    .div-inputs2 .inputs:last-child {
+        margin: 0 auto;
+        width: 88%;
+    }
+
 
     .div-inputs-btn{
         display: flex;
         width: 100%;
         justify-content: start;
         padding-left: 30px;
+        height: 20%;
     }
     .pop-up .div-btns{
         display: flex;
@@ -1122,34 +1156,32 @@ select:active, select:focus {
         margin-right: 25px;
         width: 100px;
     }
+    .dataTables_info{
+        width: 50%;
+    }
+    .dataTables_paginate {
+        width: 50%;
+        justify-content: center;
+    }
 
 }
+
+
+@media screen and (max-width: 780px) {
+    main .dataTables_paginate{
+        width: 50%;
+        justify-content: end;
+    }
+    
+}
+
 
 @media screen and (max-width: 700px){
     #pop-up{
         height: 70%;
         width: 90%;
     }
-    .div-inputs{
-        display: flex;
-        flex-direction: column;
-        padding-right: 0;
-        margin-top: 0;
-        height: 40%;
-    }
-
-    .div-inputs:first-child{
-        margin-top: 0;
-    }
     
-    .div-inputs .inputs{
-        /* margin-top: 25px; */
-        width: 100%;
-    }
-    
-    .div-inputs-btn{
-        height: 20%;
-    }
     main .recent-orders{
         position: relative;
         margin: 1rem 0 5rem 0;
@@ -1165,6 +1197,24 @@ select:active, select:focus {
     }
 }
 
+@media screen and (max-width: 585px){
+    main .dataTables_info{
+        width: 100%;
+        text-align: center;
+    }
+    main .dataTables_paginate{
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 467px){
+    main table tbody tr td:last-child{
+        width: auto;
+    }
+}
+
 
 @media screen and (max-width: 467px){
  .profile .info{
@@ -1177,22 +1227,32 @@ select:active, select:focus {
         display: flex;
         width: 100%;
     }
-    main .all-table ul:nth-child(1) li{
-        margin-left: 10px;
-    }
     main .recent-orders{
-        margin-left: -5px;
+        margin-left: 2px;
     }
     main .pages ul li:nth-child(4),
     main .pages ul li:nth-child(6){
         display: none;
     }
-
-
-    .div-inputs{
-        height: 30%;
+    main table thead tr th:nth-child(5),
+    main table thead tr th:nth-child(6){
+        display: none;
+    } 
+    main table tbody tr td:nth-child(5),
+    main table tbody tr td:nth-child(6){
+        display: none;
     }
-    
+    main table tbody tr td:last-child{
+        width: 25%;
+        text-align: center;
+    }
+    main table tbody tr td:nth-child(3){
+        width: 30%;
+        text-align: center;
+    }
+    main .filter ul #mark-order{
+        width: 100px;
+    }
     .div-inputs .inputs .input-modal{
         font-size: 1rem;
         height: 55px;
@@ -1209,5 +1269,21 @@ select:active, select:focus {
     }
     .div-inputs-btn{
         height: 20%;
+    }
+}
+
+
+
+
+
+@media screen and (max-height:915px) {
+    aside .sidebar a{
+        transform: translateY(-120px);
+    }
+}
+
+@media screen and (max-height:670px) {
+    aside .sidebar a{
+        transform: translateY(-170px);
     }
 }
